@@ -1,0 +1,33 @@
+{
+  "name": "Nosub Downloader",
+  "description": "Download nosub's videos",
+  "author": "KONO Shizuku",
+  "icons": {
+    "128": "assets/icons/icon128.png",
+    "48": "assets/icons/icon48.png"
+  },
+  "version": "1.0.0.0",
+  "manifest_version": 2,
+  "background": {
+  },
+  "content_scripts": [
+    {
+    "matches": ["http://www.nosub.tv/watch/*"],
+    "css"    : [
+    ],
+    "js"     : [
+      "vendor/js/zepto.min.js",
+      "vendor/js/underscore-min.js",
+      "content_scripts/js/download.js"
+    ],
+    "run_at" : "document_idle",
+    "all_frames": false
+    }
+  ],
+  "permissions": [
+    "http://www.nosub.tv/*"
+  ],
+  "web_accessible_resources": [
+    "vendor/js/*.map"
+  ]
+}
