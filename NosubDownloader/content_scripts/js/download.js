@@ -78,7 +78,7 @@
     }
   };
   
-  var createDownloadButton = function() {
+  var createDownloadButton = function () {
     var button = $('<span><a href="#" target="_blank">Download</a> <small>右クリックでリンク先を保存</small></span>');
     
     button.find('a').css({
