@@ -60,10 +60,19 @@
   
   var setDownloadLink = function (e) {
     var element = $(e.target);
-    var selected = $('#mkplayer-sectsel select').val();
+    var select  = $('#mkplayer-sectsel select');
+    var selectedIndex = 0; // Default source
     
-    if (videos[selected] && videos[selected]['url']) {
-      element.attr('href', videos[selected]['url']);
+    if (select.length > 0) {
+      selectedIndex = select.val();
+    }
+    
+    if (videos[selectedIndex]){
+      var video = videos[selectedIndex];
+      
+      if (video['url']) {
+        element.attr('href', video['url']);
+      }
     }
   };
   
