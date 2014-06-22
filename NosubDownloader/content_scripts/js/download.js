@@ -58,27 +58,26 @@
     $('body').append(newScript);
   };
   
-  var downloadVideo = function () {
-    //console.log('downloadVideo');
-    
+  var setDownloadLink = function (e) {
+    var element = $(e.target);
     var selected = $('#mkplayer-sectsel select').val();
-    //console.log(selected);
     
     if (videos[selected] && videos[selected]['url']) {
-      window.open(videos[selected]['url']);
+      element.attr('href', videos[selected]['url']);
     }
   };
   
   var createDownloadButton = function() {
-    var button = $('<input type="button" value="Download"/>');
+    var button = $('<span><a href="#" target="_blank">Download</a> <small>右クリックでリンク先を保存</small></span>');
     
-    button.css({
+    button.find('a').css({
       margin: '0 0 0 5px',
       padding: '2px 5px',
       cursor: 'pointer'
     });
     
-    button.click(downloadVideo);
+    button.on('mousedown', setDownloadLink);
+    button.on('contextmenu', setDownloadLink);
     $('#mkplayer-sectsel').append(button);
   };
   
