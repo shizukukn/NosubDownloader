@@ -2,6 +2,8 @@
 // Author: KONO Shizuku
 
 !function () {
+  'use strict';
+  
   var videos = [];
   
   window.addVideoDownloader = function (w, h, flashvars, ptitle, descripption, player) {
