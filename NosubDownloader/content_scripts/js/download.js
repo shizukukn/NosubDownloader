@@ -81,14 +81,15 @@
   var createDownloadButton = function () {
     var button = $('<span><a href="#" target="_blank">Download</a> <small>右クリックでリンク先を保存</small></span>');
     
-    button.find('a').css({
-      margin: '0 0 0 5px',
-      padding: '2px 5px',
-      cursor: 'pointer'
-    });
+    button.find('a')
+      .css({
+        margin: '0 0 0 5px',
+        padding: '2px 5px',
+        cursor: 'pointer'
+      })
+      .on('mousedown', setDownloadLink)
+      .on('contextmenu', setDownloadLink);
     
-    button.on('mousedown', setDownloadLink);
-    button.on('contextmenu', setDownloadLink);
     $('#mkplayer-sectsel').append(button);
   };
   
