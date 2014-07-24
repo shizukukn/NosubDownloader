@@ -1,12 +1,13 @@
 {
-  "name": "Nosub Downloader",
-  "description": "Download nosub's videos",
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
   "author": "KONO Shizuku",
   "icons": {
     "128": "assets/icons/icon128.png",
     "48": "assets/icons/icon48.png"
   },
-  "version": "1.1.1.1",
+  "default_locale": "en",
+  "version": "1.1.2.1",
   "manifest_version": 2,
   "background": {
   },
