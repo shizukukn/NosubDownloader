@@ -7,7 +7,7 @@
     "48": "assets/icons/icon48.png"
   },
   "default_locale": "en",
-  "version": "1.1.2.1",
+  "version": "1.2.0.0",
   "manifest_version": 2,
   "background": {
   },
@@ -19,6 +19,7 @@
     "js"     : [
       "vendor/js/zepto.min.js",
       "vendor/js/underscore-min.js",
+      "vendor/js/md5.js",
       "content_scripts/js/download.js"
     ],
     "run_at" : "document_idle",
@@ -26,7 +27,8 @@
     }
   ],
   "permissions": [
-    "*://www.nosub.tv/*"
+    "*://www.nosub.tv/*",
+    "http://video.fc2.com/*"
   ],
   "web_accessible_resources": [
     "vendor/js/*.map"

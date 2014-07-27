@@ -3,6 +3,7 @@
 
 !function () {
   'use strict';
+  var FC2_MAGICK = '_gGddgPfeaf_gzyr';
   
   var videos = [];
   
@@ -11,13 +12,19 @@
     
     var params = parseParams(flashvars);
     //console.log(params['file']);
+    var index  = videos.length;
+    videos.push({ });
     
-    if (params['file']) {
-      videos.push({ url: params['file'] });
-    }
+    switch (params['type']){
+    case 'video':
+      videos[index] = { url: params['file'] };
+      break;
     
-    else {
-      videos.push({ });
+    case 'fc2':
+      getFc2VideoDownloadUrl(params['vid'], function (url) {
+        videos[index] = { url: url };
+      });
+      break;
     }
   };
   
@@ -42,6 +49,24 @@
     });
     
     return params;
+  };
+  
+  var getFc2VideoDownloadUrl = function (vid, cb) {
+    var getInfoUrl = 'http://video.fc2.com/ginfo.php?mimi=' +
+      CybozuLabs.MD5.calc(vid + FC2_MAGICK) +
+      '&v=' + vid + '&upid=' + vid + '&otag=1';
+    //console.log(getInfoUrl);
+    
+    $.get(getInfoUrl, function (data) {
+      //console.log(data);
+      var params = parseParams(data);
+      var videoUrl = params['filepath'] + '?mid=' + params['mid'];
+      //console.log(videoUrl);
+      
+      if (videoUrl) {
+        cb(videoUrl);
+      }
+    });
   };
   
   var parseVideoScript = function () {
@@ -69,6 +94,7 @@
       selectedIndex = select.val();
     }
     
+    //console.log(videos);
     if (videos[selectedIndex]){
       var video = videos[selectedIndex];
       
