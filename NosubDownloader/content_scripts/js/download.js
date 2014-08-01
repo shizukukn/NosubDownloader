@@ -26,6 +26,9 @@
       });
       break;
     
+    case 'empty':
+      break;
+    
     default:
       console.error('Unknown video type `' + params['type'] + '`');
     }
@@ -103,8 +106,14 @@
       
       if (video['url']) {
         element.attr('href', video['url']);
+        element.css('cursor', 'pointer');
+        return;
       }
     }
+    
+    // empty source
+    element.removeAttr('href');
+    element.css('cursor', 'default');
   };
   
   var createDownloadButton = function () {
@@ -113,11 +122,9 @@
     button.find('a')
       .css({
         margin: '0 0 0 5px',
-        padding: '2px 5px',
-        cursor: 'pointer'
+        padding: '2px 5px'
       })
-      .on('mousedown', setDownloadLink)
-      .on('contextmenu', setDownloadLink);
+      .on('mouseover', setDownloadLink);
     
     $('#mkplayer-sectsel').append(button);
   };
