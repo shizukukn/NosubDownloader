@@ -1,13 +1,13 @@
 // Path: content_scripts/js/download.js
 // Author: KONO Shizuku
 
-!function () {
+!function (_global, undefined) {
   'use strict';
   var FC2_MAGICK = '_gGddgPfeaf_gzyr';
   
   var videos = [];
   
-  window.addVideoDownloader = function (w, h, flashvars, ptitle, descripption, player) {
+  _global.addVideoDownloader = function (w, h, flashvars, ptitle, descripption, player) {
     //console.log(flashvars);
     
     var params = parseParams(flashvars);
@@ -31,7 +31,7 @@
     }
   };
   
-  window.renderVideoDownloader = function () { };
+  _global.renderVideoDownloader = function () { };
   
   var parseParams = function (str) {
     var params = { };
@@ -124,4 +124,4 @@
   
   parseVideoScript();
   createDownloadButton();
-}();
+}(this);
