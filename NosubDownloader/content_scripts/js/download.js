@@ -25,6 +25,9 @@
         videos[index] = { url: url };
       });
       break;
+    
+    default:
+      console.error('Unknown video type `' + params['type'] + '`');
     }
   };
   
