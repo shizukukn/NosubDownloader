@@ -4,5 +4,12 @@
   },
 	"extDescription": {
 		"message": "Download nosub's videos"
-	}
+	},
+  
+  "downloadButtonText": {
+    "message": "Download"
+  },
+  "downloadDescription": {
+    "message": "Right click and save as"
+  }
 }

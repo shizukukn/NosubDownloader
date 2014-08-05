@@ -4,5 +4,12 @@
   },
 	"extDescription": {
 		"message": "Nosub の動画をダウンロードできます。"
-	}
+	},
+  
+  "downloadButtonText": {
+    "message": "ダウンロード"
+  },
+  "downloadDescription": {
+    "message": "右クリックでリンク先を保存"
+  }
 }

@@ -117,14 +117,18 @@
   };
   
   var createDownloadButton = function () {
-    var button = $('<span><a href="#" target="_blank">Download</a> <small>右クリックでリンク先を保存</small></span>');
+    var button = $('<span><a href="#" target="_blank"></a> <small></small></span>');
     
     button.find('a')
+      .text(chrome.i18n.getMessage('downloadButtonText'))
       .css({
         margin: '0 0 0 5px',
         padding: '2px 5px'
       })
       .on('mouseover', setDownloadLink);
+    
+    button.find('small')
+      .text(chrome.i18n.getMessage('downloadDescription'));
     
     $('#mkplayer-sectsel').append(button);
   };
