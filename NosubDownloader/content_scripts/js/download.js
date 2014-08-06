@@ -45,13 +45,10 @@
     _.each(pairs, function (pair) {
       var index = pair.indexOf('=');
       
-      if (index > -1) {
+      if (index > 0) {
         var key = pair.slice(0, index);
         var value = pair.slice(index + 1);
-        
-        if (key && value) {
-          params[key] = value;
-        }
+        params[key] = value;
       }
     });
     
