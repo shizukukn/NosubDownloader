@@ -4,6 +4,7 @@
 !function (_global, undefined) {
   'use strict';
   var FC2_MAGICK = '_gGddgPfeaf_gzyr';
+  var INQUIRY_FORM = 'https://docs.google.com/forms/d/1WMYu-JU91Bv11l9Z5oRB-wETDpDUcgfUOMbO1KOiNrk/viewform';
   
   var videos = [];
   
@@ -117,9 +118,14 @@
   };
   
   var createDownloadButton = function () {
-    var button = $('<span><a href="#" target="_blank"></a> <small></small></span>');
+    var button = $(
+      '<span>' +
+        '<a href="#" target="_blank" class="download"></a> ' +
+        '<small class="description"></small> ' +
+        '<small class="form"><a href="#" target="_blank"></a></small>' +
+      '</span>');
     
-    button.find('a')
+    button.find('a.download')
       .text(chrome.i18n.getMessage('downloadButtonText'))
       .css({
         margin: '0 0 0 5px',
@@ -127,8 +133,12 @@
       })
       .on('mouseover', setDownloadLink);
     
-    button.find('small')
-      .text(chrome.i18n.getMessage('downloadDescription'));
+    button.find('small.description')
+      .text('<- ' + chrome.i18n.getMessage('downloadDescription'));
+    
+    button.find('small.form a')
+      .prop('href', INQUIRY_FORM)
+      .text(chrome.i18n.getMessage('inquiryFormLinkText'));
     
     $('#mkplayer-sectsel').append(button);
   };
