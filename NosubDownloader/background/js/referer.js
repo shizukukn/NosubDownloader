@@ -2,6 +2,8 @@
 // Author: KONO Shizuku
 
 !function (_global, undefined) {
+  'use strict';
+  
   chrome.webRequest.onBeforeSendHeaders.addListener(
     function (details) {
       return {
