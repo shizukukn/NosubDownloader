@@ -10,6 +10,10 @@
   "version": "1.2.2.1",
   "manifest_version": 2,
   "background": {
+    "scripts": [
+      "vendor/js/underscore-min.js",
+      "background/js/referer.js"
+    ]
   },
   "content_scripts": [
     {
@@ -20,6 +24,7 @@
       "vendor/js/zepto.min.js",
       "vendor/js/underscore-min.js",
       "vendor/js/md5.js",
+      "content_scripts/js/mukiopress.js",
       "content_scripts/js/download.js"
     ],
     "run_at" : "document_idle",
@@ -28,7 +33,10 @@
   ],
   "permissions": [
     "*://www.nosub.tv/*",
-    "http://video.fc2.com/*"
+    "http://video.fc2.com/*",
+    "http://videotfs.tc.qq.com/*",
+    "webRequest",
+    "webRequestBlocking"
   ],
   "web_accessible_resources": [
     "vendor/js/*.map"

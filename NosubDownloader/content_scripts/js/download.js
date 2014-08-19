@@ -27,6 +27,12 @@
       });
       break;
     
+    case 'qq':
+      Mukiopress.getVideoDownloadUrl(params['type'], params['vid'], function (url) {
+        videos[index] = { url: url };
+      });
+      break;
+    
     case 'empty':
       break;
     
