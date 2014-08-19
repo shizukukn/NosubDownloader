@@ -1,7 +1,7 @@
 // Path: content_scripts/js/mukiopress.js
 // Author: KONO Shizuku
 
-!function(_global, undefined){
+!function (_global, undefined) {
   'use strict';
   var MUKIOPRESS_URL = 'https://www.nosub.tv/wp-content/plugins/mukiopress/lianyue/?/';
   
@@ -9,7 +9,7 @@
     return MUKIOPRESS_URL + type + '/' + vid;
   };
   
-  var getVideoDownloadUrl = function (type, vid, cb){
+  var getVideoDownloadUrl = function (type, vid, cb) {
     var url = getRequestUrl(type, vid);
     
     $.get(url, function (data) {
