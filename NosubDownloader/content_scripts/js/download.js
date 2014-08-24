@@ -16,23 +16,23 @@
     var index  = videos.length;
     videos.push({ });
     
+    var updateVideoUrl = function (url) {
+      videos[index] = { url: url };
+    };
+    
     switch (params['type']){
     case 'video':
     case 'sound':
-      videos[index] = { url: params['file'] };
+      updateVideoUrl(params['file']);
       break;
     
     case 'fc2':
-      getFc2VideoDownloadUrl(params['vid'], function (url) {
-        videos[index] = { url: url };
-      });
+      getFc2VideoDownloadUrl(params['vid'], updateVideoUrl);
       break;
     
     case 'qq':
     case 'veoh':
-      Mukiopress.getVideoDownloadUrl(params['type'], params['vid'], function (url) {
-        videos[index] = { url: url };
-      });
+      Mukiopress.getVideoDownloadUrl(params['type'], params['vid'], updateVideoUrl);
       break;
     
     case 'empty':
@@ -40,7 +40,7 @@
     
     default:
       console.error('Unknown video type `' + params['type'] + '`');
-      alert('Unknown video type `' + params['type'] + '`');
+      //alert('Unknown video type `' + params['type'] + '`');
     }
   };
   
