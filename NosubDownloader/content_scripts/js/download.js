@@ -18,6 +18,7 @@
     
     switch (params['type']){
     case 'video':
+    case 'sound':
       videos[index] = { url: params['file'] };
       break;
     
