@@ -13,7 +13,9 @@
     var url = getRequestUrl(type, vid);
     
     $.get(url, function (data) {
-      cb(data);
+      if (data !== 'Error') {
+        cb(data);
+      }
     });
   };
   
