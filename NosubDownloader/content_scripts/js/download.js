@@ -29,6 +29,7 @@
       break;
     
     case 'qq':
+    case 'veoh':
       Mukiopress.getVideoDownloadUrl(params['type'], params['vid'], function (url) {
         videos[index] = { url: url };
       });
@@ -39,6 +40,7 @@
     
     default:
       console.error('Unknown video type `' + params['type'] + '`');
+      alert('Unknown video type `' + params['type'] + '`');
     }
   };
   
