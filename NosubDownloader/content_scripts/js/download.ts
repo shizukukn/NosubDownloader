@@ -47,12 +47,12 @@ module nosub.contentScripts.download {
         //console.log(getInfoUrl);
 
         $.get(getInfoUrl, data => {
-            //console.log(data);
             var params = parseParams(data);
-            var videoUrl = params['filepath'] + '?mid=' + params['mid'];
-            //console.log(videoUrl);
 
-            if (videoUrl) {
+            if (params['filepath'] && params['mid']) {
+                var videoUrl = params['filepath'] + '?mid=' + params['mid'];
+                //console.log(videoUrl);
+
                 cb(videoUrl);
             }
         });
