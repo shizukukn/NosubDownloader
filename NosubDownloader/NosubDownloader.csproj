@@ -48,9 +48,12 @@
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
     <Folder Include="background\css\" />
-    <Folder Include="vendor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\icons\icon128.png" />
+    <Content Include="assets\icons\icon48.png" />
+    <Content Include="vendor\js\md5.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="background\js\referer.ts" />
