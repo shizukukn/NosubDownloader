@@ -59,6 +59,7 @@
     <None Include="background\js\referer.ts" />
     <Content Include="_locales\en\messages.json" />
     <Content Include="_locales\ja\messages.json" />
+    <Content Include="manifest.json" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="content_scripts\js\download.ts" />
