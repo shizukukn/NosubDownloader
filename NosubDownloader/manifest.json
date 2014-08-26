@@ -11,7 +11,7 @@
   "manifest_version": 2,
   "background": {
     "scripts": [
-      "vendor/js/underscore-min.js",
+      "vendor/js/bower_concat.js",
       "background/js/referer.js"
     ]
   },
@@ -21,8 +21,7 @@
     "css"    : [
     ],
     "js"     : [
-      "vendor/js/zepto.min.js",
-      "vendor/js/underscore-min.js",
+      "vendor/js/bower_concat.js",
       "vendor/js/md5.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/download.js"
@@ -39,6 +38,6 @@
     "webRequestBlocking"
   ],
   "web_accessible_resources": [
-    "vendor/js/*.map"
+    "**/*.map"
   ]
 }

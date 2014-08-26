@@ -1,0 +1,19 @@
+{
+  "name": "NosubDownloader",
+  "version": "0.0.0",
+  "authors": [
+    "KONO Shizuku <shizukukn@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "zepto": "~1.1.4",
+    "underscore": "~1.6.0"
+  }
+}

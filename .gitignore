@@ -1,2 +1,10 @@
 Thumbs.db
-/*.zip
+*.csproj.user
+*.suo
+
+node_modules
+bower_components
+typings
+
+/bin
+/obj

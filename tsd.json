@@ -1,0 +1,21 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "zepto/zepto.d.ts": {
+      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+    },
+    "chrome/chrome.d.ts": {
+      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+    },
+    "webrtc/MediaStream.d.ts": {
+      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+    },
+    "underscore/underscore.d.ts": {
+      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+    }
+  }
+}
