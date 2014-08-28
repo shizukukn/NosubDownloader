@@ -95,4 +95,4 @@ module.exports = (grunt) ->
         ]
     
     grunt.registerTask 'create_empty_debug', ->
-        grunt.file.write('bin/NosubDownloader/debug.js', '');
+        grunt.file.write('bin/NosubDownloader/debug.js', '')
