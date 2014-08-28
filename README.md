@@ -18,7 +18,7 @@ You can download nosub's videos if you install the extension to Google Chrome!
 ### Install build tools
 ```
 npm install bower -g
-npm install grunt -g
+npm install grunt-cli -g
 npm install tsd -g
 ```
 
