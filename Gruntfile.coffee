@@ -94,5 +94,9 @@ module.exports = (grunt) ->
         'compress'
         ]
     
+    grunt.registerTask 'test', [
+        'build'
+        ]
+    
     grunt.registerTask 'create_empty_debug', ->
         grunt.file.write('bin/NosubDownloader/debug.js', '')
