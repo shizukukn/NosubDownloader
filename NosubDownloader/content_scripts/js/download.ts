@@ -104,7 +104,7 @@ module nosub.contentScripts.download {
         element.removeAttr('href');
         element.css('cursor', 'default');
 
-        return undefined
+        return undefined;
     }
 
     function createDownloadButton() {
