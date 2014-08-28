@@ -1,5 +1,6 @@
 Nosub Downloader
 ==================
+[![Build Status](https://travis-ci.org/shizuku613/NosubDownloader.svg?branch=master)](https://travis-ci.org/shizuku613/NosubDownloader)
 
 You can download nosub's videos if you install the extension to Google Chrome!
 
