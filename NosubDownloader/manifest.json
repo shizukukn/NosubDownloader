@@ -23,6 +23,7 @@
     "js"     : [
       "vendor/js/bower_concat.js",
       "vendor/js/md5.js",
+      "debug.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/download.js"
     ],

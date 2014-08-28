@@ -10,6 +10,8 @@ declare module CybozuLabs.MD5 {
     function calc(str: string, option?: number): string;
 }
 
+declare var DEBUG: boolean;
+
 module nosub.contentScripts.download {
     'use strict';
 
@@ -167,7 +169,10 @@ module nosub.contentScripts.download {
 
             default:
                 console.error('Unknown video type `' + params['type'] + '`');
-            //alert('Unknown video type `' + params['type'] + '`');
+
+                if (typeof DEBUG !== 'undefined') {
+                    alert('Unknown video type `' + params['type'] + '`');
+                }
         }
     }
 

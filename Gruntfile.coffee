@@ -12,10 +12,10 @@ module.exports = (grunt) ->
                 cwd: 'NosubDownloader/'
                 src: [
                     'manifest.json'
+                    'debug.js'
                     '**/*.png'
                     '**/*.json'
                     '**/*.js'
-                    '**/*.js.map'
                     ]
                 dest: 'bin/NosubDownloader'
             
@@ -51,7 +51,7 @@ module.exports = (grunt) ->
                 dest: 'bin/NosubDownloader/vendor/js/bower_concat.js'
                 options:
                     sourceMap: false
-                
+        
         watch:
             main_typescript:
                 files: [
@@ -65,6 +65,7 @@ module.exports = (grunt) ->
                 files: [
                     'NosubDownloader/**/*.png'
                     'NosubDownloader/manifest.json'
+                    'NosubDownloader/debug.js'
                     'NosubDownloader/vendor/*.js'
                     ]
                 tasks: ['copy:main']
@@ -88,6 +89,10 @@ module.exports = (grunt) ->
         'typescript'
         'bower_concat'
         'copy:main'
+        'create_empty_debug'
         'uglify'
         'compress'
         ]
+    
+    grunt.registerTask 'create_empty_debug', ->
+        grunt.file.write('bin/NosubDownloader/debug.js', '');
