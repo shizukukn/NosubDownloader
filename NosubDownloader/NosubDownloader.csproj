@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="assets\icons\icon128.png" />
     <Content Include="assets\icons\icon48.png" />
+    <Content Include="debug.js" />
     <Content Include="vendor\js\md5.js" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +65,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="content_scripts\js\download.ts" />
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
+    <TypeScriptCompile Include="content_scripts\js\sina.ts" />
+    <TypeScriptCompile Include="typings\md5\md5.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

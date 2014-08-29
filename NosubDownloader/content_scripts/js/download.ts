@@ -5,10 +5,7 @@
 /// <reference path="../../../typings/chrome/chrome.d.ts" />
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
-
-declare module CybozuLabs.MD5 {
-    function calc(str: string, option?: number): string;
-}
+/// <reference path="../../typings/md5/md5.d.ts" />
 
 declare var DEBUG: boolean;
 
