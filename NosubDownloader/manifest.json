@@ -25,6 +25,7 @@
       "vendor/js/md5.js",
       "debug.js",
       "content_scripts/js/mukiopress.js",
+      "content_scripts/js/sina.js",
       "content_scripts/js/download.js"
     ],
     "run_at" : "document_idle",
@@ -35,6 +36,7 @@
     "*://www.nosub.tv/*",
     "http://video.fc2.com/*",
     "http://videotfs.tc.qq.com/*",
+    "http://v.iask.com/*",
     "webRequest",
     "webRequestBlocking"
   ],

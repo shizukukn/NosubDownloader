@@ -161,6 +161,13 @@ module nosub.contentScripts.download {
                 nosub.contentScripts.mukiopress.getVideoDownloadUrl(params['type'], params['vid'], updateVideoUrl);
                 break;
 
+            case 'sina':
+                sina.getVideoDownloadUrls(params['vid'], (urls) => {
+                    console.log(urls);
+                });
+
+                break;
+
             case 'empty':
                 break;
 
