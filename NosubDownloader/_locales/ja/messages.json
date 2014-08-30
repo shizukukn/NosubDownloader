@@ -1,14 +1,17 @@
 {
-	"extName": {
-		"message": "Nosub ダウンローダー - 無料で動画をダウンロード"
-  },
-	"extDescription": {
-		"message": "Nosub の動画をダウンロードできます。"
-	},
-  
-  "downloadButtonText": {
-    "message": "ダウンロード"
-  },
+    "extName": {
+        "message": "Nosub ダウンローダー - 無料で動画をダウンロード"
+    },
+    "extDescription": {
+        "message": "Nosub の動画をダウンロードできます。"
+    },
+
+    "downloadButtonText": {
+        "message": "ダウンロード"
+    },
+    "downloadButtonErrorText": { 
+        "message": "ダウンロード不可"
+    },
   "downloadDescription": {
     "message": "右クリックでリンク先を保存"
   },

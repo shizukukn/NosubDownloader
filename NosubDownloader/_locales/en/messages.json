@@ -5,10 +5,13 @@
 	"extDescription": {
 		"message": "Download nosub's videos"
 	},
-  
-  "downloadButtonText": {
-    "message": "Download"
-  },
+
+    "downloadButtonText": {
+        "message": "Download"
+    },
+    "downloadButtonErrorText": { 
+        "message": "Can't Download"
+    },
   "downloadDescription": {
     "message": "Right click and save as"
   },

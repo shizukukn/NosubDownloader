@@ -17,9 +17,11 @@ module nosub.contentScripts.download {
 
     interface Video {
         url?: string;
+        urls?: string[];
     }
 
     var videos: Video[] = [];
+    var downloadButton: ZeptoCollection = null;
 
     function parseParams(str: string) {
         var params: { [key: string]: string } = {};
@@ -67,68 +69,112 @@ module nosub.contentScripts.download {
         scriptText = scriptText.replace(/renderVideo\(/g, 'renderVideoDownloader(');
 
         var newScript = $('<script />');
-
-        newScript.text(
-            scriptText
-            );
+        newScript.text(scriptText);
         
         //console.log(newScript);
 
         $('body').append(newScript);
     }
 
-    function setDownloadLink(e: Event): boolean {
-        var element = $(e.target);
+    function setDownloadLink(): void {
+        var element = downloadButton;
+        if (element == null) return;
+
         var select = $('#mkplayer-sectsel select');
         var selectedIndex = 0; // Default source
 
         if (select.size() > 0) {
             selectedIndex = parseInt(select.val(), 10);
         }
+        
+        // Clear download buttons
+        element.find('.download').empty();
 
-        //console.log(videos);
         if (videos[selectedIndex]) {
             var video = videos[selectedIndex];
 
+            var addButton = (url: string, text: string) => {
+                var link = $('<a />')
+                    .text(text)
+                    .attr('href', url)
+                    .css({
+                        cursor: 'pointer',
+                        margin: '0 3px 0 0'
+                    });
+
+                element.find('.download')
+                    .append(link);
+            };
+
             if (video['url']) {
-                element.attr('href', video['url']);
-                element.css('cursor', 'pointer');
-                return undefined;
+                addButton(video['url'], chrome.i18n.getMessage('downloadButtonText'));
+            }
+
+            else if (video['urls']) {
+                _.each(video['urls'], (url, index) => {
+                    if (index == 0) {
+                        addButton(url, chrome.i18n.getMessage('downloadButtonText') + ' [1]');
+                    }
+
+                    else {
+                        addButton(url, '[' + (index + 1) + ']');
+                    }
+                });
+            }
+            
+            else {
+                element.find('.download')
+                    .text(chrome.i18n.getMessage('downloadButtonErrorText'));
             }
         }
 
-        // empty source
-        element.removeAttr('href');
-        element.css('cursor', 'default');
+        else {
+            element.find('.download')
+                .text(chrome.i18n.getMessage('downloadButtonErrorText'));
+        }
+    }
 
+    function changeVideoSelected(e: Event): boolean {
+        setDownloadLink();
         return undefined;
     }
 
     function createDownloadButton() {
         var button = $(
-            '<span>' +
-            '<a href="#" target="_blank" class="download"></a> ' +
+            '<span class="wrap">' +
+            '<span class="download"></span> ' +
             '<small class="description"></small> ' +
             '<small class="form"><a href="#" target="_blank"></a></small>' +
             '</span>');
 
-        button.find('a.download')
-            .text(chrome.i18n.getMessage('downloadButtonText'))
+        button
             .css({
                 margin: '0 0 0 5px',
                 padding: '2px 5px'
-            })
-            .on('mouseover', setDownloadLink);
+            });
 
         button.find('small.description')
-            .text('<- ' + chrome.i18n.getMessage('downloadDescription'));
+            .text(chrome.i18n.getMessage('downloadDescription'));
 
         button.find('small.form a')
             .prop('href', INQUIRY_FORM)
             .text(chrome.i18n.getMessage('inquiryFormLinkText'));
 
         $('#mkplayer-sectsel').append(button);
+        downloadButton = button;
     };
+
+    /**
+     * ƒCƒxƒ“ƒg‚ð’Ç‰Á‚·‚é
+     */
+    function addEvents(): void {
+        var select = $('#mkplayer-sectsel select');
+
+        // Default source
+        if (select.length > 0) {
+            select.on('change', changeVideoSelected);
+        }
+    }
 
     function addVideoDownloader(
         w: number,
@@ -144,6 +190,12 @@ module nosub.contentScripts.download {
 
         var updateVideoUrl = (url: string) => {
             videos[index] = { url: url };
+            setDownloadLink();
+        };
+
+        var updateVideoUrls = (urls: string[]) => {
+            videos[index] = { urls: urls };
+            setDownloadLink();
         };
 
         switch (params['type']) {
@@ -163,7 +215,7 @@ module nosub.contentScripts.download {
 
             case 'sina':
                 sina.getVideoDownloadUrls(params['vid'], (urls) => {
-                    console.log(urls);
+                    updateVideoUrls(urls);
                 });
 
                 break;
@@ -188,4 +240,6 @@ module nosub.contentScripts.download {
 
     parseVideoScript();
     createDownloadButton();
+    addEvents();
+    setDownloadLink();
 }
