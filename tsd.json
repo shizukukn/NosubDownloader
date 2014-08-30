@@ -6,16 +6,16 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "zepto/zepto.d.ts": {
-      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
     },
     "chrome/chrome.d.ts": {
-      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
     },
     "webrtc/MediaStream.d.ts": {
-      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
     },
     "underscore/underscore.d.ts": {
-      "commit": "3505d15d991ddaa4f5efa13edcd8543bae1e46de"
+      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
     }
   }
 }
