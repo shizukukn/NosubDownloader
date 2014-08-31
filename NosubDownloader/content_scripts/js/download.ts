@@ -5,7 +5,7 @@
 /// <reference path="../../../typings/chrome/chrome.d.ts" />
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
-/// <reference path="../../typings/md5/md5.d.ts" />
+/// <reference path="../../../typings/md5/md5.d.ts" />
 
 declare var DEBUG: boolean;
 
