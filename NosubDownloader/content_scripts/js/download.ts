@@ -83,7 +83,8 @@ module nosub.contentScripts.download {
         var select = $('#mkplayer-sectsel select');
         var selectedIndex = 0; // Default source
 
-        if (select.size() > 0) {
+        // If exist select box
+        if (select.length > 0) {
             selectedIndex = parseInt(select.val(), 10);
         }
         
@@ -217,6 +218,10 @@ module nosub.contentScripts.download {
                 sina.getVideoDownloadUrls(params['vid'], (urls) => {
                     updateVideoUrls(urls);
                 });
+
+                break;
+
+            case 'xiami':
 
                 break;
 
