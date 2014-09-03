@@ -1,5 +1,6 @@
 // Path: content_scripts/js/download.js
 // License: MIT License
+// Author: shizuku613<https://github.com/shizuku613>
 // Copyright (C) KONO Shizuku 2014
 
 /// <reference path="../../../typings/chrome/chrome.d.ts" />
