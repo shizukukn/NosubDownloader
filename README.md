@@ -6,8 +6,9 @@ You can download nosub's videos if you install the extension to Google Chrome!
 
 ## Development environment
 * TypeScript
-* Visual Studio 2013
+* Node.js
 * Grunt
+* Visual Studio 2013
 
 ## Used library
 * [Zepto.js](http://zeptojs.com)
@@ -33,6 +34,11 @@ tsd reinstall
 ### Compile
 ```
 grunt build
+```
+
+### Test (Not implemented)
+```
+grunt test
 ```
 
 ## License
