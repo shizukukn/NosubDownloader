@@ -74,9 +74,7 @@ module.exports = (grunt) ->
                 files: ['bower.json', 'bower_components/**/*']
                 tasks: ['bower_concat', 'copy:bower']
     
-    for t of pkg.devDependencies
-        if t.substring(0, 6) is 'grunt-'
-            grunt.loadNpmTasks t
+    require('load-grunt-tasks')(grunt)
     
     grunt.registerTask 'default', [
         'typescript'
