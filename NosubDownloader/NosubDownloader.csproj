@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="background\css\" />
+    <Folder Include="content_scripts\css\" />
     <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
