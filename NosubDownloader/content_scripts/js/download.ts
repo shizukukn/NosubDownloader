@@ -222,9 +222,8 @@ module nosub.contentScripts.download {
 
                 break;
 
-            case 'xiami':
-
-                break;
+            //case 'xiami':
+            //    break;
 
             case 'empty':
                 break;
