@@ -41,6 +41,12 @@ grunt build
 grunt test
 ```
 
+## Branches
+* [master](https://github.com/shizuku613/NosubDownloader/tree/master)<br />
+Main branch
+* [master_js](https://github.com/shizuku613/NosubDownloader/tree/master_js)<br />
+This is the JavaScript old branch, and has being already converted to TypeScript.
+
 ## License
 * MIT License
 * Copyright (c) 2014 KONO Shizuku
