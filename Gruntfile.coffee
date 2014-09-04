@@ -11,7 +11,6 @@ module.exports = (grunt) ->
                 expand: true
                 cwd: 'NosubDownloader/'
                 src: [
-                    'manifest.json'
                     'debug.js'
                     '**/*.png'
                     '**/*.json'
@@ -52,6 +51,14 @@ module.exports = (grunt) ->
                 options:
                     sourceMap: false
         
+        json5_to_json:
+            manifest:
+                options:
+                    replacer: null
+                    space: 2
+                src: ['NosubDownloader/manifest.json']
+                dest: 'bin/NosubDownloader/manifest.json'
+        
         watch:
             main_typescript:
                 files: [
@@ -69,10 +76,14 @@ module.exports = (grunt) ->
                     'NosubDownloader/vendor/*.js'
                     ]
                 tasks: ['copy:main']
-        
+            
             bower:
                 files: ['bower.json', 'bower_components/**/*']
                 tasks: ['bower_concat', 'copy:bower']
+            
+            manifest:
+                files: ['NosubDownloader/manifest.json']
+                tasks: ['json5_to_json']
     
     require('load-grunt-tasks')(grunt)
     
@@ -80,6 +91,7 @@ module.exports = (grunt) ->
         'typescript'
         'bower_concat'
         'copy'
+        'json5_to_json'
         'watch'
         ]
     
@@ -87,6 +99,7 @@ module.exports = (grunt) ->
         'typescript'
         'bower_concat'
         'copy:main'
+        'json5_to_json'
         'create_empty_debug'
         'uglify'
         'compress'
