@@ -18,5 +18,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-typescript": "^0.3.8",
     "load-grunt-tasks": "^0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shizuku613/NosubDownloader.git"
   }
 }
