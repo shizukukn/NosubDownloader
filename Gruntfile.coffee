@@ -23,6 +23,10 @@ module.exports = (grunt) ->
                 cwd: 'obj/NosubDownloader/'
                 src: 'bower_concat.js'
                 dest: 'bin/NosubDownloader/vendor/js/'
+            
+            license:
+                src: 'LICENSE.txt'
+                dest: 'bin/NosubDownloader/'
         
         typescript:
             main:
@@ -43,13 +47,17 @@ module.exports = (grunt) ->
                     cwd: 'bin'
                     src: 'NosubDownloader/**/*'
                 ]
-                    
+                
         uglify:
             bower:
                 src: 'obj/NosubDownloader/bower_concat.js'
                 dest: 'bin/NosubDownloader/vendor/js/bower_concat.js'
                 options:
                     sourceMap: false
+            
+            md5:
+                src: 'NosubDownloader/vendor/js/md5.js'
+                dest: 'bin/NosubDownloader/vendor/js/md5.js'
         
         json5_to_json:
             manifest:
@@ -99,6 +107,7 @@ module.exports = (grunt) ->
         'typescript'
         'bower_concat'
         'copy:main'
+        'copy:license'
         'json5_to_json'
         'create_empty_debug'
         'uglify'
