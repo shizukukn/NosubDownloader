@@ -7,6 +7,8 @@
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 
 module nosub.contentScripts.sina {
+    'use strict';
+
     var SINA_URL = 'http://v.iask.com/v_play.php?';
 
     function getSinaVideoInfoUrl(vid: string): string {
