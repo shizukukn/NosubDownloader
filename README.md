@@ -47,7 +47,7 @@ grunt test
 * [master](https://github.com/shizuku613/NosubDownloader/tree/master)<br />
 Main branch
 * [master_js](https://github.com/shizuku613/NosubDownloader/tree/master_js)<br />
-This is the JavaScript old branch, and has being already converted to TypeScript.
+This is the JavaScript old branch (<= v1.3.1.2), and has being already converted to TypeScript.
 
 ## License
 * MIT License
