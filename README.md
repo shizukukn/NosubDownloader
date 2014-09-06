@@ -8,6 +8,8 @@ You can download nosub's videos if you install the extension to Google Chrome!
 * TypeScript
 * Node.js
 * Grunt
+* Bower
+* Travis-CI
 * Visual Studio 2013
 
 ## Used library
