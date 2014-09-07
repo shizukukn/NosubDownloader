@@ -12,7 +12,7 @@ module nosub.background.referer {
     chrome.webRequest.onBeforeSendHeaders.addListener(
         details => {
             return {
-                requestHeaders: _.filter(<any[]>details.requestHeaders, header => {
+                requestHeaders: _.filter(details.requestHeaders, header => {
                     if (header.name == 'Referer' &&
                         header.value.indexOf('nosub.tv') > -1) {
                         return false;
