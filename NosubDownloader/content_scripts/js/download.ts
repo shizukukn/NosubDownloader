@@ -8,8 +8,6 @@
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 /// <reference path="../../../typings/md5/md5.d.ts" />
 
-declare var DEBUG: boolean;
-
 module nosub.contentScripts.download {
     'use strict';
 

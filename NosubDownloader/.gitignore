@@ -1,2 +1,4 @@
 /bin
 /obj
+/*.js
+/*.js.map
