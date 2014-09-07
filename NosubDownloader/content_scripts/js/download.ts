@@ -210,7 +210,8 @@ module nosub.contentScripts.download {
 
             case 'qq':
             case 'veoh':
-                nosub.contentScripts.mukiopress.getVideoDownloadUrl(params['type'], params['vid'], updateVideoUrl);
+                mukiopress.getVideoDownloadUrl(
+                    params['type'], params['vid'], updateVideoUrl);
                 break;
 
             case 'sina':
