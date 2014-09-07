@@ -165,7 +165,7 @@ module nosub.contentScripts.download {
     };
 
     /**
-     * ƒCƒxƒ“ƒg‚ğ’Ç‰Á‚·‚é
+     * ã‚¤ãƒ™ãƒ³ãƒˆã‚’è¿½åŠ ã™ã‚‹
      */
     function addEvents(): void {
         var select = $('#mkplayer-sectsel select');
