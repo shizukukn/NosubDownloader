@@ -172,7 +172,7 @@ module nosub.contentScripts.download {
 
         // Default source
         if (select.length > 0) {
-            select.on('change', changeVideoSelected);
+            select.change(changeVideoSelected);
         }
     }
 
