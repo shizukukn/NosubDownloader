@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "zepto/zepto.d.ts": {
-      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
+      "commit": "0031a67d843278b40514452c5e68b8fc0788cee7"
     },
     "chrome/chrome.d.ts": {
       "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
