@@ -6,11 +6,12 @@ You can download nosub's videos if you install the extension to Google Chrome!
 
 ## Development environment
 * TypeScript
-* Node.js
-* Grunt
-* Bower
-* Travis-CI
+* Node.js & NPM
 * Visual Studio 2013
+* [Grunt](http://gruntjs.com)
+* [Bower](http://bower.io)
+* [tsd](http://definitelytyped.org/tsd/)
+* [Travis CI](https://travis-ci.org)
 
 ## Used library
 * [Zepto.js](http://zeptojs.com)
@@ -18,6 +19,7 @@ You can download nosub's videos if you install the extension to Google Chrome!
 * [md5.js](http://labs.cybozu.co.jp/blog/mitsunari/2007/07/md5js_1.html)
 
 ## How to build
+You must install Node.js and NPM before to build this project.
 
 ### Install build tools
 ```
