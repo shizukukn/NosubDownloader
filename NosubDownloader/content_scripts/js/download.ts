@@ -76,7 +76,7 @@ module nosub.contentScripts.download {
         
         //console.log(newScript);
 
-        $('body').append(newScript);
+        $('head').append(newScript);
     }
 
     function setDownloadLink(): void {
