@@ -27,7 +27,7 @@
       "content_scripts/js/sina.js",
       "content_scripts/js/download.js"
     ],
-    "run_at" : "document_idle",
+    "run_at" : "document_start",
     "all_frames": false
     }
   ],

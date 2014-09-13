@@ -13,6 +13,10 @@ module nosub.contentScripts.download {
 
     var FC2_MAGICK = '_gGddgPfeaf_gzyr';
     var INQUIRY_FORM = 'https://docs.google.com/forms/d/1WMYu-JU91Bv11l9Z5oRB-wETDpDUcgfUOMbO1KOiNrk/viewform';
+    var SCRIPT_START_INTERVAL = 50; // ms
+
+    var VIDEO_SCRIPT_SELECTOR = '#mkplayer-content + script';
+    var VIDEO_SELECT_SELECTOR = '#mkplayer-sectsel select';
 
     interface Video {
         url?: string;
@@ -59,7 +63,7 @@ module nosub.contentScripts.download {
     }
 
     function parseVideoScript() {
-        var pageScript = $('#mkplayer-content + script');
+        var pageScript = $(VIDEO_SCRIPT_SELECTOR);
         //console.log(script[0]);
         //console.log(script.text());
 
@@ -79,7 +83,7 @@ module nosub.contentScripts.download {
         var element = downloadButton;
         if (element == null) return;
 
-        var select = $('#mkplayer-sectsel select');
+        var select = $(VIDEO_SELECT_SELECTOR);
         var selectedIndex = 0; // Default source
 
         // If exist select box
@@ -168,7 +172,7 @@ module nosub.contentScripts.download {
      * イベントを追加する
      */
     function addEvents(): void {
-        var select = $('#mkplayer-sectsel select');
+        var select = $(VIDEO_SELECT_SELECTOR);
 
         // Default source
         if (select.length > 0) {
@@ -176,6 +180,30 @@ module nosub.contentScripts.download {
         }
     }
 
+    /**
+     * スクリプトを開始してよい場合に true を返す
+     * Return true if the script may begin
+     */
+    function isScriptCanStart(): boolean {
+        var selectors = [VIDEO_SCRIPT_SELECTOR, VIDEO_SELECT_SELECTOR];
+
+        // すべてのセレクタの要素が存在する場合に true
+        return _.every(selectors, s => $(s).length > 0);
+    }
+
+    function startScript(): void {
+        // 開始できない場合、遅延させる
+        if (!isScriptCanStart()) {
+            _.delay(startScript, SCRIPT_START_INTERVAL);
+            return;
+        }
+
+        parseVideoScript();
+        createDownloadButton();
+        addEvents();
+        setDownloadLink();
+    }
+       
     function addVideoDownloader(
         w: number,
         h: number,
@@ -242,8 +270,5 @@ module nosub.contentScripts.download {
     extWindow.addVideoDownloader = addVideoDownloader;
     extWindow.renderVideoDownloader = renderVideoDownloader;
 
-    parseVideoScript();
-    createDownloadButton();
-    addEvents();
-    setDownloadLink();
+    startScript();
 }
