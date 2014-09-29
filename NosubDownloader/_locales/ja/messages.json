@@ -13,7 +13,7 @@
         "message": "ダウンロード不可"
     },
   "downloadDescription": {
-    "message": "右クリックでリンク先を保存"
+    "message": "ダウンロードをクリックで保存"
   },
   "inquiryFormLinkText": {
   	"message": "ダウンロード出来ない場合"

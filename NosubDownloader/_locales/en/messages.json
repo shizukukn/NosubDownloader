@@ -13,7 +13,7 @@
         "message": "Can't Download"
     },
   "downloadDescription": {
-    "message": "Right click and save as"
+    "message": "Click download link to save"
   },
   "inquiryFormLinkText": {
   	"message": "If can't download the video"
