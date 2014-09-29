@@ -98,7 +98,7 @@ module nosub.contentScripts.download {
             var video = videos[selectedIndex];
 
             var addButton = (url: string, text: string) => {
-                var link = $('<a />')
+                var link = $('<a download />')
                     .text(text)
                     .attr('href', url)
                     .css({
