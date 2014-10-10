@@ -11,6 +11,8 @@ module nosub.background.referer {
 
     chrome.webRequest.onBeforeSendHeaders.addListener(
         details => {
+            //console.log(details.url);
+            
             return {
                 requestHeaders: _.filter(details.requestHeaders, header => {
                     if (header.name == 'Referer' &&
@@ -24,7 +26,8 @@ module nosub.background.referer {
         },
         {
             urls: [
-                'http://videotfs.tc.qq.com/*'
+                'http://videotfs.tc.qq.com/*',
+                'http://vip.cvideocache2.fc2.com/*'
             ]
         },
         [

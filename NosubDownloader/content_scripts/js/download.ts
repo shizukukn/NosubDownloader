@@ -55,7 +55,7 @@ module nosub.contentScripts.download {
 
             if (params['filepath'] && params['mid']) {
                 var videoUrl = params['filepath'] + '?mid=' + params['mid'];
-                //console.log(videoUrl);
+                console.log(videoUrl);
 
                 cb(videoUrl);
             }
