@@ -52,5 +52,6 @@ Main branch
 This is the JavaScript old branch (<= v1.3.1.2), and has being already converted to TypeScript.
 
 ## License
-* MIT License
+* GLPv3 License (>= v1.4.5.0)
+* MIT License (< v1.4.5.0)
 * Copyright (c) 2014 KONO Shizuku
