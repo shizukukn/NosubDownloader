@@ -18,6 +18,8 @@
     {
     "matches": ["*://www.nosub.tv/watch/*"],
     "css"    : [
+        "vendor/css/bower_concat.css",
+        "content_scripts/css/modal.css"
     ],
     "js"     : [
       "vendor/js/bower_concat.js",
@@ -41,6 +43,7 @@
     "webRequestBlocking"
   ],
   "web_accessible_resources": [
-    "**/*.map"
+    "**/*.map",
+    "**/*.html"
   ]
 }

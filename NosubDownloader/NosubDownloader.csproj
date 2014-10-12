@@ -49,12 +49,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="background\css\" />
-    <Folder Include="content_scripts\css\" />
-    <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icons\icon128.png" />
     <Content Include="assets\icons\icon48.png" />
+    <Content Include="content_scripts\css\modal.css" />
+    <Content Include="content_scripts\html\inquiry.en.html" />
+    <Content Include="content_scripts\html\inquiry.ja.html" />
     <Content Include="vendor\js\md5.js" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +69,7 @@
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
     <TypeScriptCompile Include="content_scripts\js\sina.ts" />
     <TypeScriptCompile Include="debug.ts" />
+    <TypeScriptCompile Include="typings\pgwmodal.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

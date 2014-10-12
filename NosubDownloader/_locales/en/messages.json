@@ -12,10 +12,13 @@
     "downloadButtonErrorText": { 
         "message": "Can't Download"
     },
-  "downloadDescription": {
-    "message": "Click download link to save"
-  },
-  "inquiryFormLinkText": {
-  	"message": "If can't download the video"
-  }
+    "downloadDescription": {
+        "message": "Click download link to save"
+    },
+    "inquiryFormLinkText": {
+        "message": "If can't download the video"
+    },
+    "inquiryWindowTitle": {
+        "message": "If can't download the video"
+    }
 }

@@ -12,10 +12,13 @@
     "downloadButtonErrorText": { 
         "message": "ダウンロード不可"
     },
-  "downloadDescription": {
-    "message": "ダウンロードをクリックで保存"
-  },
-  "inquiryFormLinkText": {
-  	"message": "ダウンロード出来ない場合"
-  }
+    "downloadDescription": {
+        "message": "ダウンロードをクリックで保存"
+    },
+    "inquiryFormLinkText": {
+        "message": "ダウンロード出来ない場合"
+    },
+    "inquiryWindowTitle": {
+        "message": "ダウンロード出来ない場合"
+    }
 }

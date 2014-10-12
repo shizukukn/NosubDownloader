@@ -7,12 +7,12 @@
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 /// <reference path="../../../typings/md5/md5.d.ts" />
+/// <reference path="../../typings/pgwmodal.d.ts" />
 
 module nosub.contentScripts.download {
     'use strict';
 
     var FC2_MAGICK = '_gGddgPfeaf_gzyr';
-    var INQUIRY_FORM = 'https://docs.google.com/forms/d/1WMYu-JU91Bv11l9Z5oRB-wETDpDUcgfUOMbO1KOiNrk/viewform';
     var SCRIPT_START_INTERVAL = 50; // ms
 
     var VIDEO_SCRIPT_SELECTOR = '#mkplayer-content + script';
@@ -55,7 +55,7 @@ module nosub.contentScripts.download {
 
             if (params['filepath'] && params['mid']) {
                 var videoUrl = params['filepath'] + '?mid=' + params['mid'];
-                console.log(videoUrl);
+                //console.log(videoUrl);
 
                 cb(videoUrl);
             }
@@ -148,7 +148,7 @@ module nosub.contentScripts.download {
             '<span class="wrap">' +
             '<span class="download"></span> ' +
             '<small class="description"></small> ' +
-            '<small class="form"><a href="#" target="_blank"></a></small>' +
+            '<small class="form"><a href="#"></a></small>' +
             '</span>');
 
         button
@@ -161,9 +161,9 @@ module nosub.contentScripts.download {
             .text(chrome.i18n.getMessage('downloadDescription'));
 
         button.find('small.form a')
-            .prop('href', INQUIRY_FORM)
-            .text(chrome.i18n.getMessage('inquiryFormLinkText'));
-
+            .text(chrome.i18n.getMessage('inquiryFormLinkText'))
+            .click(showModalWindow);
+        
         $('#mkplayer-sectsel').append(button);
         downloadButton = button;
     };
@@ -189,6 +189,30 @@ module nosub.contentScripts.download {
 
         // すべてのセレクタの要素が存在する場合に true
         return _.every(selectors, s => $(s).length > 0);
+    }
+
+    /**
+     * モーダルウィンドウを表示する
+     */
+    function showModalWindow(e: Event): void {
+        // イベント伝搬停止
+        e.stopPropagation();
+        e.preventDefault();
+
+        var manifest = <{ default_locale: string }>chrome.runtime.getManifest();
+        var locale = manifest.default_locale; // デフォルトロケールを取得
+
+        // ロケールが日本語なら、日本語版を利用
+        if ((<any>chrome.i18n).getUILanguage() == 'ja') {
+            locale = 'ja';
+        }
+
+        // モーダルウィンドウ表示
+        $.pgwModal({
+            title: chrome.i18n.getMessage('inquiryWindowTitle'),
+            url: chrome.extension.getURL('content_scripts/html/inquiry.' + locale + '.html'),
+            maxWidth: 800
+        });
     }
 
     function startScript(): void {

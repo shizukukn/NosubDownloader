@@ -4,7 +4,16 @@ module.exports = (grunt) ->
     grunt.initConfig
         bower_concat:
             main:
+                dependencies:
+                    'pgwmodal': 'zepto'
+                mainFiles:
+                    'pgwmodal': 'pgwmodal.js'
                 dest: 'obj/NosubDownloader/bower_concat.js'
+        
+        concat_css:
+            bower:
+                src: ['bower_components/**/*.css']
+                dest: 'bin/' + pkg.name + '/vendor/css/bower_concat.css'
         
         copy:
             main:
@@ -15,6 +24,8 @@ module.exports = (grunt) ->
                     '**/*.png'
                     '**/*.json'
                     '**/*.js'
+                    '**/*.css'
+                    '**/*.html'
                     ]
                 dest: 'bin/NosubDownloader'
             
@@ -79,15 +90,17 @@ module.exports = (grunt) ->
             main_static:
                 files: [
                     'NosubDownloader/**/*.png'
-                    'NosubDownloader/manifest.json'
+                    'NosubDownloader/_locales/*.json'
                     'NosubDownloader/debug.js'
                     'NosubDownloader/vendor/*.js'
+                    pkg.name + '/**/*.css'
+                    pkg.name + '/**/*.html'
                     ]
                 tasks: ['copy:main']
             
             bower:
                 files: ['bower.json', 'bower_components/**/*']
-                tasks: ['bower_concat', 'copy:bower']
+                tasks: ['bower_concat', 'copy:bower', 'concat_css']
             
             manifest:
                 files: ['NosubDownloader/manifest.json']
@@ -100,6 +113,7 @@ module.exports = (grunt) ->
         'bower_concat'
         'copy'
         'json5_to_json'
+        'concat_css'
         'watch'
         ]
     
@@ -109,6 +123,7 @@ module.exports = (grunt) ->
         'copy:main'
         'copy:license'
         'json5_to_json'
+        'concat_css'
         'create_empty_debug'
         'uglify'
         'compress'
