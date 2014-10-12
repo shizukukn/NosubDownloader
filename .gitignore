@@ -4,7 +4,7 @@ Thumbs.db
 
 node_modules
 bower_components
-typings
+/typings
 
 /bin
 /obj
