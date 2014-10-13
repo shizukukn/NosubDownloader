@@ -1,5 +1,5 @@
 // Path: content_scripts/js/mukiopress.js
-// License: MIT License
+// License: GPLv3<http://www.gnu.org/licenses/>
 // Author: shizuku613<https://github.com/shizuku613>
 // Copyright (C) KONO Shizuku 2014
 

@@ -1,4 +1,10 @@
-﻿#nosub_downloader_inquiry {
+﻿/* Path: content_scripts/css/modal.css
+ * License: GPLv3<http://www.gnu.org/licenses/>
+ * Author: shizuku613<https://github.com/shizuku613>
+ * Copyright (C) KONO Shizuku 2014
+ */
+
+#nosub_downloader_inquiry {
     padding: 10px 15px;
 }
 
