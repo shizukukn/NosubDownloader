@@ -8,7 +8,7 @@ module.exports = (grunt) ->
                     'pgwmodal': 'zepto'
                 mainFiles:
                     'pgwmodal': 'pgwmodal.js'
-                dest: 'obj/NosubDownloader/bower_concat.js'
+                dest: 'obj/' + pkg.name + '/bower_concat.js'
         
         concat_css:
             bower:
@@ -18,7 +18,7 @@ module.exports = (grunt) ->
         copy:
             main:
                 expand: true
-                cwd: 'NosubDownloader/'
+                cwd: pkg.name + '/'
                 src: [
                     'debug.js'
                     '**/*.png'
@@ -27,21 +27,21 @@ module.exports = (grunt) ->
                     '**/*.css'
                     '**/*.html'
                     ]
-                dest: 'bin/NosubDownloader'
+                dest: 'bin/' + pkg.name + '/'
             
             bower:
                 expand: true
-                cwd: 'obj/NosubDownloader/'
+                cwd: 'obj/' + pkg.name + '/'
                 src: 'bower_concat.js'
-                dest: 'bin/NosubDownloader/vendor/js/'
+                dest: 'bin/' + pkg.name + '/vendor/js/'
             
             license:
                 src: 'LICENSE.txt'
-                dest: 'bin/NosubDownloader/'
+                dest: 'bin/' + pkg.name + '/'
         
         typescript:
             main:
-                src: ['NosubDownloader/**/*.ts']
+                src: [pkg.name + '/**/*.ts']
                 options:
                     target: 'es5'
                     sourceMap: false
@@ -52,47 +52,43 @@ module.exports = (grunt) ->
         compress:
             main:
                 options:
-                    archive: 'bin/NosubDownloader.zip'
+                    archive: 'bin/' + pkg.name + '.zip'
                 files: [
                     expand: true
                     cwd: 'bin'
-                    src: 'NosubDownloader/**/*'
+                    src: pkg.name + '/**/*'
                 ]
                 
         uglify:
             bower:
-                src: 'obj/NosubDownloader/bower_concat.js'
-                dest: 'bin/NosubDownloader/vendor/js/bower_concat.js'
+                src: 'obj/' + pkg.name + '/bower_concat.js'
+                dest: 'bin/' + pkg.name + '/vendor/js/bower_concat.js'
                 options:
                     sourceMap: false
             
             md5:
-                src: 'NosubDownloader/vendor/js/md5.js'
-                dest: 'bin/NosubDownloader/vendor/js/md5.js'
+                src: pkg.name + '/vendor/js/md5.js'
+                dest: 'bin/' + 'pkg.name + /vendor/js/md5.js'
         
         json5_to_json:
             manifest:
                 options:
                     replacer: null
                     space: 2
-                src: ['NosubDownloader/manifest.json']
-                dest: 'bin/NosubDownloader/manifest.json'
+                src: [pkg.name + '/manifest.json']
+                dest: 'bin/' + pkg.name + '/manifest.json'
+        
+        clean:
+            bin: ['bin/**/*']
+            obj: ['obj/**/*']
         
         watch:
-            main_typescript:
-                files: [
-                    'tsd.json'
-                    'typings/**/*'
-                    'NosubDownloader/**/*.ts'
-                    ]
-                tasks: ['typescript', 'copy:main']
-            
             main_static:
                 files: [
-                    'NosubDownloader/**/*.png'
-                    'NosubDownloader/_locales/*.json'
-                    'NosubDownloader/debug.js'
-                    'NosubDownloader/vendor/*.js'
+                    pkg.name + '/**/*.png'
+                    pkg.name + '/_locales/*.json'
+                    pkg.name + '/debug.js'
+                    pkg.name + '/**/*.js'
                     pkg.name + '/**/*.css'
                     pkg.name + '/**/*.html'
                     ]
@@ -103,12 +99,13 @@ module.exports = (grunt) ->
                 tasks: ['bower_concat', 'copy:bower', 'concat_css']
             
             manifest:
-                files: ['NosubDownloader/manifest.json']
+                files: [pkg.name + '/manifest.json']
                 tasks: ['json5_to_json']
     
     require('load-grunt-tasks')(grunt)
     
     grunt.registerTask 'default', [
+        'clean'
         'typescript'
         'bower_concat'
         'copy'
@@ -118,6 +115,7 @@ module.exports = (grunt) ->
         ]
     
     grunt.registerTask 'build', [
+        'clean'
         'typescript'
         'bower_concat'
         'copy:main'
@@ -134,4 +132,4 @@ module.exports = (grunt) ->
         ]
     
     grunt.registerTask 'create_empty_debug', ->
-        grunt.file.write('bin/NosubDownloader/debug.js', '')
+        grunt.file.write('bin/' + pkg.name + /debug.js', '')
