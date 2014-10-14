@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="background\css\" />
+    <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icons\icon128.png" />
@@ -69,7 +70,6 @@
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
     <TypeScriptCompile Include="content_scripts\js\sina.ts" />
     <TypeScriptCompile Include="debug.ts" />
-    <TypeScriptCompile Include="typings\pgwmodal.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
