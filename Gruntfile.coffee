@@ -132,4 +132,4 @@ module.exports = (grunt) ->
         ]
     
     grunt.registerTask 'create_empty_debug', ->
-        grunt.file.write('bin/' + pkg.name + /debug.js', '')
+        grunt.file.write('bin/' + pkg.name + '/debug.js', '')
