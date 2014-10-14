@@ -19,6 +19,9 @@
     },
     "md5/md5.d.ts": {
       "commit": "860be6b710669bd0a371a0867954e92f300e88f2"
+    },
+    "pgwmodal/pgwmodal.d.ts": {
+      "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
     }
   }
 }
