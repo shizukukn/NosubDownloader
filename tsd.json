@@ -6,19 +6,19 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "zepto/zepto.d.ts": {
-      "commit": "0031a67d843278b40514452c5e68b8fc0788cee7"
+      "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
     },
     "chrome/chrome.d.ts": {
-      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
+      "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
     },
     "webrtc/MediaStream.d.ts": {
-      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
+      "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
     },
     "underscore/underscore.d.ts": {
-      "commit": "1c3488c2d84232b9f66b6d7e758839381e95b3bf"
+      "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
     },
     "md5/md5.d.ts": {
-      "commit": "860be6b710669bd0a371a0867954e92f300e88f2"
+      "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
     },
     "pgwmodal/pgwmodal.d.ts": {
       "commit": "8abb240eea37beed10de955c59023d1cbd9c829f"
