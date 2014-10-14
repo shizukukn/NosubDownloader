@@ -7,7 +7,7 @@
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 /// <reference path="../../../typings/md5/md5.d.ts" />
-/// <reference path="../../typings/pgwmodal.d.ts" />
+/// <reference path="../../../typings/pgwmodal/pgwmodal.d.ts" />
 
 module nosub.contentScripts.download {
     'use strict';
