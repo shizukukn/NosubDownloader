@@ -68,7 +68,7 @@ module.exports = (grunt) ->
             
             md5:
                 src: pkg.name + '/vendor/js/md5.js'
-                dest: 'bin/' + 'pkg.name + /vendor/js/md5.js'
+                dest: 'bin/' + pkg.name + '/vendor/js/md5.js'
         
         json5_to_json:
             manifest:

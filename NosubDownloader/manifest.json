@@ -6,7 +6,7 @@
     "48": "assets/icons/icon48.png"
   },
   "default_locale": "en",
-  "version": "1.4.5.2",
+  "version": "1.4.5.3",
   "manifest_version": 2,
   "background": {
     "scripts": [
@@ -35,10 +35,10 @@
   ],
   "permissions": [
     "*://www.nosub.tv/*",
-    "http://video.fc2.com/*",
-    "http://videotfs.tc.qq.com/*",
-    "http://v.iask.com/*",
-    "http://vip.cvideocache2.fc2.com/*",
+    "http://video.fc2.com/*",            // FC2
+    "http://videotfs.tc.qq.com/*",       // QQ
+    "http://v.iask.com/*",               // sina
+    "http://vip.cvideocache2.fc2.com/*", // FC2
     "webRequest",
     "webRequestBlocking"
   ],
