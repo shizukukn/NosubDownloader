@@ -5,10 +5,10 @@ Nosub Downloader
 You can download nosub's videos if you install the extension to Google Chrome!
 
 ## Development environment
-* TypeScript
-* LESS
 * Node.js & NPM
 * Visual Studio 2013
+* [TypeScript](http://www.typescriptlang.org)
+* [LESS](http://lesscss.org)
 * [Grunt](http://gruntjs.com)
 * [Bower](http://bower.io)
 * [tsd](http://definitelytyped.org/tsd/)
