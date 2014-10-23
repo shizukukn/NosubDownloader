@@ -173,11 +173,7 @@ module nosub.contentScripts.download {
      */
     function addEvents(): void {
         var select = $(VIDEO_SELECT_SELECTOR);
-
-        // Default source
-        if (select.length > 0) {
-            select.change(changeVideoSelected);
-        }
+        select.change(changeVideoSelected);
     }
 
     /**
@@ -185,7 +181,9 @@ module nosub.contentScripts.download {
      * Return true if the script may begin
      */
     function isScriptCanStart(): boolean {
-        var selectors = [VIDEO_SCRIPT_SELECTOR, VIDEO_SELECT_SELECTOR];
+        // VIDEO_SELECT_SELECTOR は存在しないページがあるため、
+        // ここには加えない
+        var selectors = [VIDEO_SCRIPT_SELECTOR];
 
         // すべてのセレクタの要素が存在する場合に true
         return _.every(selectors, s => $(s).length > 0);
