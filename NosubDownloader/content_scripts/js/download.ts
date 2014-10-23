@@ -17,6 +17,7 @@ module nosub.contentScripts.download {
 
     var VIDEO_SCRIPT_SELECTOR = '#mkplayer-content + script';
     var VIDEO_SELECT_SELECTOR = '#mkplayer-sectsel select';
+    var ADD_VIDEO_CUSTOM_EVENT = 'custom:addvideo';
 
     interface Video {
         url?: string;
@@ -68,11 +69,22 @@ module nosub.contentScripts.download {
         //console.log(script.text());
 
         var scriptText = pageScript.text();
-        scriptText = scriptText.replace(/addVideo\(/g, 'addVideoDownloader(');
+        scriptText = scriptText.replace(/addVideo\(/g, 'addVideoDownloaderPipe(');
         scriptText = scriptText.replace(/renderVideo\(/g, 'renderVideoDownloader(');
 
+        // カスタムイベント経由でコンテンツスクリプトを呼び出すコード
+        // グローバル関数経由だと、実行は行われるがエラーが出るため、それの回避
+        var dispatchCustomEventScript =
+            'function addVideoDownloaderPipe() {' +
+                'var args = Array.prototype.slice.call(arguments);' + // 引数を配列に変換
+                'var event = new CustomEvent("' + ADD_VIDEO_CUSTOM_EVENT + '", { detail: args });' +
+                'var elem = document.getElementsByTagName("html")[0];' +
+                'elem.dispatchEvent(event);' + // 実際にイベントを発生させる
+            '}' +
+            'function renderVideoDownloader() { }';
+
         var newScript = $('<script />');
-        newScript.text(scriptText);
+        newScript.text(dispatchCustomEventScript + ';' + scriptText);
         
         //console.log(newScript);
 
@@ -177,6 +189,20 @@ module nosub.contentScripts.download {
     }
 
     /**
+     * カスタムイベントを追加する
+     */
+    function addCustomEvents(): void {
+        var elem = document.getElementsByTagName('html')[0];
+
+        // 再生動画を追加するイベント
+        elem.addEventListener(ADD_VIDEO_CUSTOM_EVENT, event => {
+            var customEvent = <CustomEvent>event;
+            var args = <any[]>customEvent.detail;
+            addVideoDownloader.apply(null, args);
+        });
+    }
+
+    /**
      * スクリプトを開始してよい場合に true を返す
      * Return true if the script may begin
      */
@@ -220,6 +246,7 @@ module nosub.contentScripts.download {
             return;
         }
 
+        addCustomEvents();
         parseVideoScript();
         createDownloadButton();
         addEvents();
@@ -285,12 +312,6 @@ module nosub.contentScripts.download {
                 }
         }
     }
-
-    function renderVideoDownloader() { }
-
-    var extWindow: any = window;
-    extWindow.addVideoDownloader = addVideoDownloader;
-    extWindow.renderVideoDownloader = renderVideoDownloader;
 
     startScript();
 }
