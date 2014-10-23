@@ -55,6 +55,9 @@
   <ItemGroup>
     <Content Include="assets\icons\icon128.png" />
     <Content Include="assets\icons\icon48.png" />
+    <Content Include="content_scripts\css\modal.css">
+      <DependentUpon>modal.less</DependentUpon>
+    </Content>
     <Content Include="content_scripts\html\inquiry.en.html" />
     <Content Include="content_scripts\html\inquiry.ja.html" />
     <Content Include="vendor\js\md5.js" />
