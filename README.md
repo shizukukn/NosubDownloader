@@ -18,6 +18,7 @@ You can download nosub's videos if you install the extension to Google Chrome!
 * [Zepto.js](http://zeptojs.com)
 * [Underscore.js](http://underscorejs.org)
 * [md5.js](http://labs.cybozu.co.jp/blog/mitsunari/2007/07/md5js_1.html)
+* [PgwModal](http://pgwjs.com/pgwmodal/)
 
 ## How to build
 You must install Node.js and NPM before to build this project.
