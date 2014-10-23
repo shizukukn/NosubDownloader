@@ -32,7 +32,7 @@ module nosub.contentScripts.download {
 
         var pairs = str.split('&');
 
-        _.each(pairs, function (pair) {
+        _.each(pairs, pair => {
             var index = pair.indexOf('=');
 
             if (index > 0) {
