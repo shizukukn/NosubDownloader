@@ -92,6 +92,12 @@ module.exports = (grunt) ->
                 src: [pkg.name + '/manifest.json']
                 dest: 'bin/' + pkg.name + '/manifest.json'
         
+        htmlhint:
+            options:
+                htmlhintrc: '.htmlhintrc'
+            main:
+                src: [pkg.name + '/**/*.html']
+        
         clean:
             bin: ['bin/**/*']
             obj: ['obj/**/*']
@@ -131,6 +137,7 @@ module.exports = (grunt) ->
     
     grunt.registerTask 'build', [
         'clean'
+        'htmlhint'
         'typescript'
         'less'
         'bower_concat'
