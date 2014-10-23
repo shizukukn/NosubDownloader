@@ -201,7 +201,7 @@ module nosub.contentScripts.download {
         var locale = manifest.default_locale; // デフォルトロケールを取得
 
         // ロケールが日本語なら、日本語版を利用
-        if ((<any>chrome.i18n).getUILanguage() == 'ja') {
+        if (chrome.i18n.getUILanguage() == 'ja') {
             locale = 'ja';
         }
 
