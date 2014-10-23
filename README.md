@@ -6,6 +6,7 @@ You can download nosub's videos if you install the extension to Google Chrome!
 
 ## Development environment
 * TypeScript
+* LESS
 * Node.js & NPM
 * Visual Studio 2013
 * [Grunt](http://gruntjs.com)

@@ -26,7 +26,7 @@
   },
   "Css": {
     "AdjustRelativePaths": true,
-    "AutoMinify": true,
+    "AutoMinify": false,
     "Autoprefix": false,
     "AutoprefixerBrowsers": null,
     "GzipMinifiedFiles": false,
@@ -95,14 +95,14 @@
     "TermSemicolons": true
   },
   "Less": {
-    "CompileOnBuild": false,
+    "CompileOnBuild": true,
     "CompileOnSave": true,
-    "EnableChainCompilation": true,
-    "GenerateSourceMaps": true,
+    "EnableChainCompilation": false,
+    "GenerateSourceMaps": false,
     "MinifyInPlace": false,
     "OutputDirectory": null,
     "ProcessSourceMapsForEditorEnhancements": true,
-    "ShowPreviewPane": true,
+    "ShowPreviewPane": false,
     "StrictMath": false
   },
   "LiveScript": {

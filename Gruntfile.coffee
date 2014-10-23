@@ -49,6 +49,20 @@ module.exports = (grunt) ->
                     noImplicitAny: true
                     comments: true
         
+        less:
+            main:
+                options:
+                    compress: true
+                    cleancss: true
+                    ieCompat: false
+                
+                files: [
+                    expand: true
+                    src: [pkg.name + '/**/*.less']
+                    dest: ''
+                    ext: '.css'
+                ]
+        
         compress:
             main:
                 options:
@@ -56,7 +70,7 @@ module.exports = (grunt) ->
                 files: [
                     expand: true
                     cwd: 'bin'
-                    src: pkg.name + '/**/*'
+                    src: [pkg.name + '/**/*']
                 ]
                 
         uglify:
@@ -107,6 +121,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'default', [
         'clean'
         'typescript'
+        'less'
         'bower_concat'
         'copy'
         'json5_to_json'
@@ -117,6 +132,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'build', [
         'clean'
         'typescript'
+        'less'
         'bower_concat'
         'copy:main'
         'copy:license'
