@@ -55,7 +55,6 @@
   <ItemGroup>
     <Content Include="assets\icons\icon128.png" />
     <Content Include="assets\icons\icon48.png" />
-    <Content Include="content_scripts\css\modal.css" />
     <Content Include="content_scripts\html\inquiry.en.html" />
     <Content Include="content_scripts\html\inquiry.ja.html" />
     <Content Include="vendor\js\md5.js" />
@@ -65,6 +64,7 @@
     <Content Include="_locales\en\messages.json" />
     <Content Include="_locales\ja\messages.json" />
     <Content Include="manifest.json" />
+    <Content Include="content_scripts\css\modal.less" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="content_scripts\js\download.ts" />
