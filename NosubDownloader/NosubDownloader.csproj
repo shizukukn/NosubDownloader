@@ -50,7 +50,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="background\css\" />
-    <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icons\icon128.png" />
@@ -60,20 +59,33 @@
     </Content>
     <Content Include="content_scripts\html\inquiry.en.html" />
     <Content Include="content_scripts\html\inquiry.ja.html" />
+    <Content Include="options_page\css\options_page.css">
+      <DependentUpon>options_page.less</DependentUpon>
+    </Content>
+    <Content Include="options_page\html\options_page.html" />
     <Content Include="vendor\js\md5.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="background\js\referer.ts" />
-    <Content Include="_locales\en\messages.json" />
+    <Content Include="vendor\js\zepto-special-events.js" />
+    <None Include="_locales\en\messages.json" />
     <Content Include="_locales\ja\messages.json" />
     <Content Include="manifest.json" />
     <Content Include="content_scripts\css\modal.less" />
+    <Content Include="options_page\css\options_page.less" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="background\js\settings.ts" />
     <TypeScriptCompile Include="content_scripts\js\download.ts" />
+    <TypeScriptCompile Include="content_scripts\js\bugreport.ts" />
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
+    <TypeScriptCompile Include="content_scripts\js\settings.ts" />
     <TypeScriptCompile Include="content_scripts\js\sina.ts" />
     <TypeScriptCompile Include="debug.ts" />
+    <TypeScriptCompile Include="global.d.ts" />
+    <TypeScriptCompile Include="options_page\js\jquery-sim.ts" />
+    <TypeScriptCompile Include="options_page\js\options_page.ts" />
+    <TypeScriptCompile Include="typings\knockout-secure-binding.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

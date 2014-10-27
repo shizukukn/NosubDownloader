@@ -1,15 +1,15 @@
 {
-	"extName": {
-		"message": "Nosub Downloader - Download videos free"
-  },
-	"extDescription": {
-		"message": "Download nosub's videos"
-	},
+    "extName": {
+        "message": "Nosub Downloader - Download videos free"
+    },
+    "extDescription": {
+        "message": "Download nosub's videos"
+    },
 
     "downloadButtonText": {
         "message": "Download"
     },
-    "downloadButtonErrorText": { 
+    "downloadButtonErrorText": {
         "message": "Can't Download"
     },
     "downloadDescription": {
@@ -20,5 +20,20 @@
     },
     "inquiryWindowTitle": {
         "message": "If can't download the video"
+    },
+     "settingsTitle": {
+        "message": "Nosub Downloader - Settings"
+    },
+    "saveButtonText": {
+        "message": "Save"
+    },
+    "cancelButtonText": { 
+        "message": "Cancel"
+    },
+    "autoBugReportDescription": {
+        "message": "Auto bug reporting"
+    },
+    "enableText": { 
+        "message": "Enable"
     }
 }

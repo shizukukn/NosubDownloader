@@ -9,7 +9,7 @@
     "downloadButtonText": {
         "message": "ダウンロード"
     },
-    "downloadButtonErrorText": { 
+    "downloadButtonErrorText": {
         "message": "ダウンロード不可"
     },
     "downloadDescription": {
@@ -20,5 +20,20 @@
     },
     "inquiryWindowTitle": {
         "message": "ダウンロード出来ない場合"
+    },
+    "settingsTitle": {
+        "message": "Nosub ダウンローダー - 設定"
+    },
+    "saveButtonText": {
+        "message": "保存"
+    },
+    "cancelButtonText": {
+        "message": "キャンセル"
+    },
+    "autoBugReportDescription": {
+        "message": "バグの自動報告"
+    },
+    "enableText": { 
+        "message": "有効にする"
     }
 }

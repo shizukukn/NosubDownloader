@@ -11,7 +11,8 @@
   "background": {
     "scripts": [
       "vendor/js/bower_concat.js",
-      "background/js/referer.js"
+      "background/js/referer.js",
+      "background/js/settings.js"
     ]
   },
   "content_scripts": [
@@ -25,14 +26,17 @@
       "vendor/js/bower_concat.js",
       "vendor/js/md5.js",
       "debug.js",
+      "content_scripts/js/settings.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/sina.js",
+      "content_scripts/js/bugreport.js",
       "content_scripts/js/download.js"
     ],
     "run_at" : "document_start",
     "all_frames": false
     }
   ],
+  "options_page": "options_page/html/options_page.html",
   "permissions": [
     "*://www.nosub.tv/*",
     "http://video.fc2.com/*",            // FC2

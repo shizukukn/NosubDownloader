@@ -6,22 +6,28 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "zepto/zepto.d.ts": {
-      "commit": "bd9a1922e44ddf35953587a92c5caf4242bf6ea5"
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
     },
     "chrome/chrome.d.ts": {
-      "commit": "bd9a1922e44ddf35953587a92c5caf4242bf6ea5"
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
     },
     "webrtc/MediaStream.d.ts": {
-      "commit": "bd9a1922e44ddf35953587a92c5caf4242bf6ea5"
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
     },
     "underscore/underscore.d.ts": {
-      "commit": "bd9a1922e44ddf35953587a92c5caf4242bf6ea5"
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
     },
     "md5/md5.d.ts": {
-      "commit": "bd9a1922e44ddf35953587a92c5caf4242bf6ea5"
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
     },
     "pgwmodal/pgwmodal.d.ts": {
-      "commit": "bd9a1922e44ddf35953587a92c5caf4242bf6ea5"
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+    },
+    "knockout.es5/knockout.es5.d.ts": {
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+    },
+    "knockout/knockout.d.ts": {
+      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
     }
   }
 }
