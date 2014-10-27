@@ -6,14 +6,19 @@ module.exports = (grunt) ->
             main:
                 dependencies:
                     'pgwmodal': 'zepto'
+                    'knockout-es5-passy': ['knockoutjs', 'knockout-secure-binding']
+                    'knockout-secure-binding': 'knockoutjs'
                 mainFiles:
-                    'pgwmodal': 'pgwmodal.js'
+                    'pgwmodal': ['pgwmodal.js', 'pgwmodal.css']
+                    'knockout-secure-binding': 'dist/knockout-secure-binding.js'
+                exclude: ['jquery', 'bootstrap']
                 dest: 'obj/' + pkg.name + '/bower_concat.js'
-        
-        concat_css:
-            bower:
-                src: ['bower_components/**/*.css']
-                dest: 'bin/' + pkg.name + '/vendor/css/bower_concat.css'
+                cssDest: 'obj/' + pkg.name + '/bower_concat.css'
+            
+            bootstrap:
+                include: ['bootstrap']
+                dest: 'obj/' + pkg.name + '/bootstrap.js'
+                cssDest: 'obj/' + pkg.name + '/bootstrap.css'
         
         copy:
             main:
@@ -29,11 +34,17 @@ module.exports = (grunt) ->
                     ]
                 dest: 'bin/' + pkg.name + '/'
             
-            bower:
+            bower_js:
                 expand: true
                 cwd: 'obj/' + pkg.name + '/'
-                src: 'bower_concat.js'
+                src: '*.js'
                 dest: 'bin/' + pkg.name + '/vendor/js/'
+            
+            bower_css:
+                expand: true
+                cwd: 'obj/' + pkg.name + '/'
+                src: '*.css'
+                dest: 'bin/' + pkg.name + '/vendor/css/'
             
             license:
                 src: 'LICENSE.txt'
@@ -46,7 +57,7 @@ module.exports = (grunt) ->
                     target: 'es5'
                     sourceMap: false
                     declaration: false
-                    noImplicitAny: true
+                    noImplicitAny: false
                     comments: true
         
         less:
@@ -74,9 +85,14 @@ module.exports = (grunt) ->
                 ]
                 
         uglify:
-            bower:
+            bower_main:
                 src: 'obj/' + pkg.name + '/bower_concat.js'
                 dest: 'bin/' + pkg.name + '/vendor/js/bower_concat.js'
+                options:
+                    sourceMap: false
+            bower_bootstrap:
+                src: 'obj/' + pkg.name + '/bootstrap.js'
+                dest: 'bin/' + pkg.name + '/vendor/js/bootstrap.js'
                 options:
                     sourceMap: false
             
@@ -126,12 +142,12 @@ module.exports = (grunt) ->
     
     grunt.registerTask 'default', [
         'clean'
+        'htmlhint'
         'typescript'
         'less'
         'bower_concat'
         'copy'
         'json5_to_json'
-        'concat_css'
         'watch'
         ]
     
@@ -143,8 +159,8 @@ module.exports = (grunt) ->
         'bower_concat'
         'copy:main'
         'copy:license'
+        'copy:bower_css'
         'json5_to_json'
-        'concat_css'
         'create_empty_debug'
         'uglify'
         'compress'

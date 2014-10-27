@@ -34,6 +34,7 @@
     "all_frames": false
     }
   ],
+  "options_page": "options_page/html/options_page.html",
   "permissions": [
     "*://www.nosub.tv/*",
     "http://video.fc2.com/*",            // FC2
