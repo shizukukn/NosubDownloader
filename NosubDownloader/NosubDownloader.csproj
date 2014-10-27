@@ -75,11 +75,14 @@
     <Content Include="options_page\css\options_page.less" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="background\js\settings.ts" />
     <TypeScriptCompile Include="content_scripts\js\download.ts" />
     <TypeScriptCompile Include="content_scripts\js\bugreport.ts" />
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
+    <TypeScriptCompile Include="content_scripts\js\settings.ts" />
     <TypeScriptCompile Include="content_scripts\js\sina.ts" />
     <TypeScriptCompile Include="debug.ts" />
+    <TypeScriptCompile Include="global.d.ts" />
     <TypeScriptCompile Include="options_page\js\jquery-sim.ts" />
     <TypeScriptCompile Include="options_page\js\options_page.ts" />
     <TypeScriptCompile Include="typings\knockout-secure-binding.d.ts" />
