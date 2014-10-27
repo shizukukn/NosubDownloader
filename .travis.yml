@@ -4,7 +4,7 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm install -g bower
-  - npm install -g tsd
+  - npm install -g tsd@0.6.0-beta.3
   - bower --version
   - tsd --version
   - bower install
