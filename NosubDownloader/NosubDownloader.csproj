@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="content_scripts\js\download.ts" />
+    <TypeScriptCompile Include="content_scripts\js\bugreport.ts" />
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
     <TypeScriptCompile Include="content_scripts\js\sina.ts" />
     <TypeScriptCompile Include="debug.ts" />

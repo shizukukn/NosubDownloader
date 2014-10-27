@@ -27,6 +27,7 @@
       "debug.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/sina.js",
+      "content_scripts/js/bugreport.js",
       "content_scripts/js/download.js"
     ],
     "run_at" : "document_start",
