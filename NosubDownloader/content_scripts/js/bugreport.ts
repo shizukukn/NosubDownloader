@@ -1,4 +1,9 @@
-﻿/// <reference path="../../../typings/chrome/chrome.d.ts" />
+﻿// Path: content_scripts/js/bugreport.ts
+// License: GPLv3<http://www.gnu.org/licenses/>
+// Author: shizuku613<https://github.com/shizuku613>
+// Copyright (C) KONO Shizuku 2014
+
+/// <reference path="../../../typings/chrome/chrome.d.ts" />
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 /// <reference path="../../../typings/md5/md5.d.ts" />
