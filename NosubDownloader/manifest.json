@@ -11,7 +11,8 @@
   "background": {
     "scripts": [
       "vendor/js/bower_concat.js",
-      "background/js/referer.js"
+      "background/js/referer.js",
+      "background/js/settings.js"
     ]
   },
   "content_scripts": [
@@ -25,6 +26,7 @@
       "vendor/js/bower_concat.js",
       "vendor/js/md5.js",
       "debug.js",
+      "content_scripts/js/settings.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/sina.js",
       "content_scripts/js/bugreport.js",

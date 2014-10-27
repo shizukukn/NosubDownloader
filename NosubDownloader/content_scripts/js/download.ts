@@ -293,7 +293,12 @@ module nosub.contentScripts.download {
 
             default:
                 console.error('Unknown video type `' + params['type'] + '`');
-                bugReport.sendUnknownVideoTypeError(params['type']);
+
+                settings.getSettingBooleanValue('autoBugReport', true, value => {
+                    if (value) {
+                        bugReport.sendUnknownVideoTypeError(params['type']);
+                    }
+                });
 
                 if (typeof DEBUG !== 'undefined') {
                     alert('Unknown video type `' + params['type'] + '`');
