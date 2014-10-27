@@ -7,7 +7,6 @@
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 /// <reference path="../../../typings/md5/md5.d.ts" />
-/// <reference path="../../../typings/pgwmodal/pgwmodal.d.ts" />
 
 module nosub.contentScripts.download {
     'use strict';
@@ -223,20 +222,8 @@ module nosub.contentScripts.download {
         e.stopPropagation();
         e.preventDefault();
 
-        var manifest = <{ default_locale: string }>chrome.runtime.getManifest();
-        var locale = manifest.default_locale; // デフォルトロケールを取得
-
-        // ロケールが日本語なら、日本語版を利用
-        if (chrome.i18n.getUILanguage() == 'ja') {
-            locale = 'ja';
-        }
-
-        // モーダルウィンドウ表示
-        $.pgwModal({
-            title: chrome.i18n.getMessage('inquiryWindowTitle'),
-            url: chrome.extension.getURL('content_scripts/html/inquiry.' + locale + '.html'),
-            maxWidth: 800
-        });
+        // ウィンドウを表示
+        bugReport.showInquiryWindow();
     }
 
     function startScript(): void {
@@ -306,6 +293,7 @@ module nosub.contentScripts.download {
 
             default:
                 console.error('Unknown video type `' + params['type'] + '`');
+                bugReport.sendUnknownVideoTypeError(params['type']);
 
                 if (typeof DEBUG !== 'undefined') {
                     alert('Unknown video type `' + params['type'] + '`');
