@@ -15,6 +15,10 @@
   "dependencies": {
     "zepto": "~1.1.4",
     "underscore": "~1.7.0",
-    "pgwmodal": "~2.0.0"
+    "pgwmodal": "~2.0.0",
+    "bootstrap": "~3.2.0",
+    "knockout-es5-passy": "~0.0.1",
+    "knockoutjs": "~3.2.0",
+    "knockout-secure-binding": "~0.5.1"
   }
 }

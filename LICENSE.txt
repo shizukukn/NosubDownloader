@@ -1,4 +1,6 @@
-NosubDownloader  Copyright (C) 2014  MIZUNE Pine
+NosubDownloader
+
+Copyright (C) 2014  MIZUNE Pine
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -60,3 +62,40 @@ Zepto v1.1.4 - zepto event ajax form ie - zeptojs.com/license
  * 
  * Released under the GNU GPLv3 license - http://opensource.org/licenses/gpl-3.0
  */
+
+-------------------------------------------------------------------------------
+
+/*!
+ * Knockout JavaScript library v3.2.0
+ * (c) Steven Sanderson - http://knockoutjs.com/
+ * License: MIT (http://www.opensource.org/licenses/mit-license.php)
+ */
+
+-------------------------------------------------------------------------------
+
+/*!
+ * Knockout ES5 plugin - https://github.com/passy/knockout-es5-passy
+ * Copyright (c) Steve Sanderson
+ * MIT license
+ */
+
+-------------------------------------------------------------------------------
+
+/*! knockout-secure-binding - v0.5.1 - 2014-10-07
+ *  https://github.com/brianmhunt/knockout-secure-binding
+ *  Copyright (c) 2013 - 2014 Brian M Hunt; License: MIT */
+
+-------------------------------------------------------------------------------
+
+ /*!
+ * Bootstrap v3.2.0 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+-------------------------------------------------------------------------------
+
+/**
+* Enable special events on Zepto
+* @license Copyright 2013 Enideo. Released under dual MIT and GPL licenses.
+*/
