@@ -159,7 +159,8 @@ module nosub.contentScripts.download {
             '<span class="wrap">' +
             '<span class="download"></span> ' +
             '<small class="description"></small> ' +
-            '<small class="form"><a href="#"></a></small>' +
+            '<small class="form"><a href="#"></a></small> ' +
+            '<small class="settings"><a href="#" target="_blank">#</a></small>' +
             '</span>');
 
         button
@@ -174,7 +175,11 @@ module nosub.contentScripts.download {
         button.find('small.form a')
             .text(chrome.i18n.getMessage('inquiryFormLinkText'))
             .click(showModalWindow);
-        
+
+        button.find('small.settings a')
+            .text(chrome.i18n.getMessage('settingsLinkText'))
+            .prop('href', chrome.extension.getURL('options_page/html/options_page.html'));
+
         $('#mkplayer-sectsel').append(button);
         downloadButton = button;
     };
