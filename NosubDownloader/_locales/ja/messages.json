@@ -21,6 +21,9 @@
     "inquiryWindowTitle": {
         "message": "ダウンロード出来ない場合"
     },
+    "settingsLinkText": { 
+        "message": "設定"
+    },
     "settingsTitle": {
         "message": "Nosub ダウンローダー - 設定"
     },
