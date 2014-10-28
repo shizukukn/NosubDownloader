@@ -17,6 +17,7 @@ module nosub.contentScripts.bugReport {
         videoType?: string;
         extId?: string;
         extVersion?: string;
+        locale?: string;
         userAgent?: string;
         debug?: boolean;
     }
@@ -27,6 +28,7 @@ module nosub.contentScripts.bugReport {
         bugReport.url = location.href;
         bugReport.extId = chrome.runtime.id;
         bugReport.extVersion = manifest.version;
+        bugReport.locale = chrome.i18n.getUILanguage();
         bugReport.userAgent = navigator.userAgent;
         bugReport.debug = typeof DEBUG !== 'undefined';
 

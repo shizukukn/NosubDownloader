@@ -25,6 +25,7 @@ module nosub.contentScripts.download {
 
     var videos: Video[] = [];
     var downloadButton: ZeptoCollection = null;
+    var errorAlertShowed = false;
 
     function parseParams(str: string) {
         var params: { [key: string]: string } = {};
@@ -306,7 +307,10 @@ module nosub.contentScripts.download {
                 });
 
                 if (typeof DEBUG !== 'undefined') {
-                    alert('Unknown video type `' + params['type'] + '`');
+                    if (!errorAlertShowed) {
+                        errorAlertShowed = true;
+                        alert('Unknown video type `' + params['type'] + '`');
+                    }
                 }
         }
     }
