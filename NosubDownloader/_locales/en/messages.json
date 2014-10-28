@@ -21,6 +21,9 @@
     "inquiryWindowTitle": {
         "message": "If can't download the video"
     },
+    "settingsLinkText": { 
+        "message": "Settings"
+    },
      "settingsTitle": {
         "message": "Nosub Downloader - Settings"
     },
