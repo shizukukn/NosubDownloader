@@ -11,6 +11,8 @@
 module nosub.contentScripts.download {
     'use strict';
 
+    var undefined = void 0;
+
     var FC2_MAGICK = '_gGddgPfeaf_gzyr';
     var SCRIPT_START_INTERVAL = 50; // ms
 
@@ -121,6 +123,13 @@ module nosub.contentScripts.download {
                 element.find('.download')
                     .append(link);
             };
+
+            // 複数 URL データでも、URL がひとつな場合、データを加工
+            if (video['urls'] && video['urls'].length == 1) {
+                var temp = video['urls'][0];
+                video['urls'] = undefined;
+                video['url'] = temp;
+            }
 
             if (video['url']) {
                 addButton(video['url'], chrome.i18n.getMessage('downloadButtonText'));
@@ -291,8 +300,12 @@ module nosub.contentScripts.download {
 
                 break;
 
-            //case 'xiami':
-            //    break;
+            case 'xiami':
+                xiami.getVideoDownloadUrl(params['vid'], urls => {
+                    updateVideoUrls(urls);
+                });
+
+                break;
 
             case 'empty':
                 break;

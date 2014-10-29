@@ -27,7 +27,8 @@ module nosub.background.referer {
         {
             urls: [
                 'http://videotfs.tc.qq.com/*',
-                'http://vip.cvideocache2.fc2.com/*'
+                'http://vip.cvideocache2.fc2.com/*',
+                'http://www.xiami.com/*'
             ]
         },
         [
