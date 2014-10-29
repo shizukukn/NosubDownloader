@@ -66,7 +66,7 @@
     <Content Include="vendor\js\md5.js" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="background\js\referer.ts" />
+    <TypeScriptCompile Include="background\js\referer.ts" />
     <Content Include="vendor\js\zepto-special-events.js" />
     <None Include="_locales\en\messages.json" />
     <Content Include="_locales\ja\messages.json" />
@@ -81,6 +81,7 @@
     <TypeScriptCompile Include="content_scripts\js\mukiopress.ts" />
     <TypeScriptCompile Include="content_scripts\js\settings.ts" />
     <TypeScriptCompile Include="content_scripts\js\sina.ts" />
+    <TypeScriptCompile Include="content_scripts\js\xiami.ts" />
     <TypeScriptCompile Include="debug.ts" />
     <TypeScriptCompile Include="global.d.ts" />
     <TypeScriptCompile Include="options_page\js\jquery-sim.ts" />

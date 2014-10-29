@@ -29,6 +29,7 @@
       "content_scripts/js/settings.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/sina.js",
+      "content_scripts/js/xiami.js",
       "content_scripts/js/bugreport.js",
       "content_scripts/js/download.js"
     ],
@@ -43,6 +44,7 @@
     "http://videotfs.tc.qq.com/*",       // QQ
     "http://v.iask.com/*",               // sina
     "http://vip.cvideocache2.fc2.com/*", // FC2
+    "http://www.xiami.com/*",            // xiami
     "webRequest",
     "webRequestBlocking"
   ],
