@@ -9,8 +9,44 @@
 module nosub.contentScripts.xiami {
     'use strict';
 
+    interface XiamiDownloadTask {
+        vid: string;
+        callback: (urls: string[]) => void;
+    }
+
     var XIAMI_URL_ID = 'http://www.xiami.com/song/playlist/id/';
     var XIAMI_URL_SONG = '/object_name/default/object_id/0/cat/json';
+
+    /**
+     * エラー時に追加する Cookie をパースするための正規表現
+     */
+    var ERROR_COOKIE_PATTERN = /document\.cookie\s*=\s*\"([^\"]*)\"/;
+
+    /**
+     * エラー発生のため、追加タスクを処理中であることを示す
+     * true である間は、タスクが遅延実行される
+     */
+    var inProgress = false;
+
+    /**
+     * 遅延実行するタスクの一覧
+     */
+    var tasks: XiamiDownloadTask[] = [];
+
+    /**
+     * 遅延タスクを実行する
+     */
+    function doTasks(): void {
+        if (!inProgress) {
+            _.each(tasks, task => {
+                _.defer(() => {
+                    getVideoDownloadUrl(task.vid, task.callback, true);
+                });
+            });
+
+            tasks.length = 0; // clear
+        }
+    }
 
     // Porting from: xiami-downloader
     // Copyright (c) 2013 Timothy Qiu and other contributors
@@ -52,30 +88,66 @@ module nosub.contentScripts.xiami {
         return videoUrl;
     }
 
-    export function getVideoDownloadUrl(vid: string, cb: (urls: string[]) => void) {
+    export function getVideoDownloadUrl(vid: string, cb: (urls: string[]) => void, retry: boolean = false) {
+
+        function pushTask(): void {
+            if (!retry) {
+                tasks.push({ vid: vid, callback: cb });
+            }
+        }
+
+        if (inProgress) {
+            pushTask();
+            return;
+        }
+
         var jsonUrl = XIAMI_URL_ID + vid + XIAMI_URL_SONG;
         var videoUrls = [];
 
-        $.get(jsonUrl, data => {
-            // 失敗
-            if (!data || !data['status'] || !data['data']) {
-                return;
-            }
+        $.ajax({
+            url: jsonUrl,
+            success: function (data) {
+                if (!data || !data['status'] || !data['data']) {
+                    return;
+                }
 
-            if (data['data']['trackList']) {
-                var trackList = <{ location?: string }[]>data['data']['trackList'];
+                if (data['data']['trackList']) {
+                    var trackList = <{ location?: string }[]>data['data']['trackList'];
 
-                _.each(trackList, track => {
-                    if (track.location) {
-                        var location = track.location;
-                        var videoUrl = decodeLocation(location);
+                    _.each(trackList, track => {
+                        if (track.location) {
+                            var location = track.location;
+                            var videoUrl = decodeLocation(location);
 
-                        videoUrls.push(videoUrl);
+                            videoUrls.push(videoUrl);
+                        }
+                    });
+
+                    cb(videoUrls);
+                }
+            },
+
+            // エラー時は、他のタスクを一時停止させ、Cookie を上書きする
+            error: function (xhr, errorType, error) {
+                if (xhr.status == 403) {
+                    if (xhr.responseText) {
+                        var matches = xhr.responseText.match(ERROR_COOKIE_PATTERN);
+
+                        if (matches) {
+                            inProgress = true;
+                            pushTask();
+
+                            // Cookie を保存
+                            var cookies = matches[1];
+                            setCookie(jsonUrl, cookies, () => {
+                                inProgress = false;
+                                doTasks();
+                            });
+                        }
                     }
-                });
-
-                cb(videoUrls);
+                }
             }
+
         });
     }
 }

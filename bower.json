@@ -19,6 +19,7 @@
     "bootstrap": "~3.2.0",
     "knockout-es5-passy": "~0.0.1",
     "knockoutjs": "~3.2.0",
-    "knockout-secure-binding": "~0.5.1"
+    "knockout-secure-binding": "~0.5.1",
+    "async": "~0.9.0"
   }
 }

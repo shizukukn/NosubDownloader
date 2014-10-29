@@ -7,4 +7,9 @@
         name: string;
         value?: string;
     }
+
+    interface CookieMessage extends Message {
+        url: string;
+        cookies: string;
+    }
 }
