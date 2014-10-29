@@ -6,13 +6,15 @@
     "48": "assets/icons/icon48.png"
   },
   "default_locale": "en",
-  "version": "1.5.0.0",
+  "version": "1.5.1.0",
   "manifest_version": 2,
   "background": {
     "scripts": [
       "vendor/js/bower_concat.js",
-      "background/js/referer.js",
-      "background/js/settings.js"
+      "vendor/js/cookie.js",
+      "background/js/headers.js",
+      "background/js/settings.js",
+      "background/js/cookie.js"
     ]
   },
   "content_scripts": [
@@ -26,6 +28,7 @@
       "vendor/js/bower_concat.js",
       "vendor/js/md5.js",
       "debug.js",
+      "content_scripts/js/cookie.js",
       "content_scripts/js/settings.js",
       "content_scripts/js/mukiopress.js",
       "content_scripts/js/sina.js",
@@ -45,6 +48,7 @@
     "http://v.iask.com/*",               // sina
     "http://vip.cvideocache2.fc2.com/*", // FC2
     "http://www.xiami.com/*",            // xiami
+    "cookies",
     "webRequest",
     "webRequestBlocking"
   ],
