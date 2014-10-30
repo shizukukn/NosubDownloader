@@ -2,7 +2,7 @@ Nosub ダウンローダー
 ==================
 [![Build Status](https://travis-ci.org/shizuku613/NosubDownloader.svg?branch=master)](https://travis-ci.org/shizuku613/NosubDownloader)
 
-[English](README.md) | [日本語](README.ja.md)
+[English](README.md) | [日本語](README.ja.md)<br />
 Nosub に動画ダウンロードボタンを追加する Google Chrome 拡張機能です。
 
 ## 開発環境
