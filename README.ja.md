@@ -1,11 +1,11 @@
-Nosub Downloader
+Nosub ダウンローダー
 ==================
 [![Build Status](https://travis-ci.org/shizuku613/NosubDownloader.svg?branch=master)](https://travis-ci.org/shizuku613/NosubDownloader)
 
 [English](README.md) | [日本語](README.ja.md)<br />
-You can download nosub's videos if you install the extension to Google Chrome!
+Nosub に動画ダウンロードボタンを追加する Google Chrome 拡張機能です。
 
-## Development environment
+## 開発環境
 * Node.js & NPM
 * Visual Studio 2013
 * [TypeScript](http://www.typescriptlang.org)
@@ -15,7 +15,7 @@ You can download nosub's videos if you install the extension to Google Chrome!
 * [tsd](http://definitelytyped.org/tsd/)
 * [Travis CI](https://travis-ci.org)
 
-## Used library
+## 依存ライブラリ
 * [Zepto.js](http://zeptojs.com)
 * [Underscore.js](http://underscorejs.org)
 * [md5.js](http://labs.cybozu.co.jp/blog/mitsunari/2007/07/md5js_1.html)
@@ -23,40 +23,40 @@ You can download nosub's videos if you install the extension to Google Chrome!
 * [Bootstrap](http://getbootstrap.com)
 * [Knockout](http://knockoutjs.com)
 
-## How to build
-You must install Node.js and NPM before to build this project.
+## ビルド方法
+このプロジェクトのビルドには Node.js および NPM が必要です。
 
-### Install build tools
+### ビルド関係ツールのインストール
 ```
 npm install bower -g
 npm install grunt-cli -g
 npm install tsd -g
 ```
 
-### Install usage library
+### 依存ライブラリのインストール
 ```
 npm install
 bower install
 tsd reinstall
 ```
 
-### Compile
+### コンパイル
 ```
 grunt build
 ```
 
-### Test (Not implemented)
+### テスト (未実装)
 ```
 grunt test
 ```
 
-## Branches
+## ブランチ
 * [master](https://github.com/shizuku613/NosubDownloader/tree/master)<br />
-Main branch
+メインブランチ
 * [master_js](https://github.com/shizuku613/NosubDownloader/tree/master_js)<br />
-This is the JavaScript old branch (<= v1.3.1.2), and has being already converted to TypeScript.
+JavaScript で書かれた旧バージョン (v1.3.1.2 以前) のブランチ。既に TypeScript に書きなおされています。
 
-## License
-* GLPv3 License (>= v1.4.5.0)
-* MIT License (< v1.4.5.0)
-* Copyright (c) 2014 KONO Shizuku
+## ライセンス
+* GLPv3 License (v1.4.5.0 以降)
+* MIT License (v1.4.5.0 以前)
+* Copyright (c) 2014 籠 しずく 
