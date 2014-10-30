@@ -6,7 +6,6 @@ module.exports = (grunt) ->
             main:
                 dependencies:
                     'pgwmodal': 'zepto'
-                    'knockoutjs': ['underscore', 'zepto', 'async']
                     'knockout-es5-passy': ['knockoutjs', 'knockout-secure-binding']
                     'knockout-secure-binding': 'knockoutjs'
                 mainFiles:
