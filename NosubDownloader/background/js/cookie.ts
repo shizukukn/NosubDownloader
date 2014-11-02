@@ -1,4 +1,4 @@
-﻿// Path       : background/js/cookie.ts
+// Path       : background/js/cookie.ts
 // Description: クロスドメインで Cookie を書き込む処理
 // License    : GPLv3<http://www.gnu.org/licenses/>
 // Author     : shizuku613<https://github.com/shizuku613>
