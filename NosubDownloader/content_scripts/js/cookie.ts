@@ -13,7 +13,7 @@ module nosub.contentScripts {
         callback: () => void
         ): void {
 
-        var message: CookieMessage = {
+        var message: SetCookieMessage = {
             type: 'cookie',
             url: url,
             cookies: cookies
