@@ -14,6 +14,12 @@ module nosub.contentScripts.bugReport {
 
     interface BugReport {
         url?: string;
+
+        /**
+         * 投稿日時
+         */
+        postedOn?: number;
+
         videoType?: string;
         extId?: string;
         extVersion?: string;
@@ -32,11 +38,35 @@ module nosub.contentScripts.bugReport {
         bugReport.userAgent = navigator.userAgent;
         bugReport.debug = typeof DEBUG !== 'undefined';
 
+        // 投稿日時
+        var postedOn = getVideoPostedOn();
+
+        if (postedOn) {
+            bugReport.postedOn = postedOn.getTime();
+        }
+
         // バグレポートを送信
         $('<script />')
             .prop('src', API_ENDPOINT + '?' + $.param(bugReport))
             .prop('async', true)
             .appendTo('body');
+    }
+
+    /**
+     * ビデオの投稿日時を取得する
+     */
+    function getVideoPostedOn(): Date {
+        var elem = $('.tminfo .time');
+
+        if(elem.length > 0){
+            var date = new Date(elem.text());
+
+            if (!isNaN(date.getTime())) {
+                return date;
+            }
+        }
+
+        return null;
     }
 
     export function sendUnknownVideoTypeError(videoType: string): void {
