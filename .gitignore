@@ -13,3 +13,5 @@ Gruntfile.js
 Gruntfile.js.map
 Gruntfile.min.js
 Gruntfile.min.js.map
+
+.webstore_upload.json
