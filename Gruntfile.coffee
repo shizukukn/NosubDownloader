@@ -2,7 +2,11 @@ _ = require('./bower_components/underscore')
 
 module.exports = (grunt) ->
     pkg = grunt.file.readJSON 'package.json'
-    webstore_upload = grunt.file.readJSON '.webstore_upload.json'
+    
+    webstore_upload = try
+        grunt.file.readJSON '.webstore_upload.json'
+    catch err
+        {}
     
     grunt.initConfig
         bower_concat:
