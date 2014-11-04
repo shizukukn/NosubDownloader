@@ -20,6 +20,11 @@ module nosub.contentScripts.bugReport {
          */
         postedOn?: number;
 
+        /**
+         * コメント
+         */
+        comment?: string;
+
         videoType?: string;
         extId?: string;
         extVersion?: string;
@@ -69,6 +74,36 @@ module nosub.contentScripts.bugReport {
         return null;
     }
 
+    /**
+     * イベントを追加する
+     */
+    function addEvents(): void {
+        $(document).on('submit', '#nosub-downloader-inquiry form', inquerySubmitted);
+    }
+
+    function inquerySubmitted(e: Event): boolean {
+        e.stopPropagation();
+        e.preventDefault();
+
+        var comment = $(e.target).find('textarea').val();
+        sendInquery(comment);
+
+        // 送信成功メッセージを表示
+        $.pgwModal({
+            title: chrome.i18n.getMessage('inquiryFormSubmittedTitle'),
+            content: chrome.i18n.getMessage('inquiryFormSubmittedText')
+        });
+
+        return false;
+    }
+
+    /**
+     * 不具合報告 (問い合わせ) を送信する
+     */
+    function sendInquery(comment: string): void {
+        sendBugreport({ comment: comment });
+    }
+
     export function sendUnknownVideoTypeError(videoType: string): void {
         sendBugreport({ videoType: videoType });
     }
@@ -89,4 +124,6 @@ module nosub.contentScripts.bugReport {
             maxWidth: 800
         });
     }
+
+    $(addEvents);
 }
