@@ -36,7 +36,13 @@
     "autoBugReportDescription": {
         "message": "Auto bug reporting"
     },
-    "enableText": { 
+    "enableText": {
         "message": "Enable"
+    },
+    "inquiryFormSubmittedTitle": {
+        "message": "Bugreport was sent"
+    },
+    "inquiryFormSubmittedText": { 
+        "message": "Bugreport was sent normal. Thank you."
     }
 }
