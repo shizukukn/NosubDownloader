@@ -7,7 +7,6 @@ install:
   - node --version
   
   # Show platform info
-  - echo %PLATFORM%
   - ps: '[System.Environment]::OSVersion'
   
   # PATH
@@ -39,7 +38,7 @@ install:
   - tsd reinstall || tsd reinstall
 
 test_script:
-  - npn test
+  - npm test
 
 # what combinations to test
 environment:
