@@ -2,6 +2,10 @@
 # http://www.appveyor.com/docs/appveyor-yml
 
 install:
+  # Update Node.js
+  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version)
+  - node --version
+  
   # Show platform info
   - echo %PLATFORM%
   - ps: '[System.Environment]::OSVersion'
@@ -13,10 +17,6 @@ install:
   
   # OpenSSL
   - SET OPENSSL_CONF=C:\Utils\OpenSSL-Win32\bin\openssl.cfg
-  
-  # Update Node.js
-  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version)
-  - node --version
   
   # Update NPM
   - npm install -g npm
@@ -45,9 +45,6 @@ test_script:
 environment:
   matrix:
     - nodejs_version: 0.10
-
-platform:
-  - x64
 
 init:
   - git config --global core.autocrlf false
