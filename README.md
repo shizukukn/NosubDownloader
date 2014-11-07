@@ -1,6 +1,7 @@
 Nosub Downloader
 ==================
 [![Build Status](https://travis-ci.org/shizuku613/NosubDownloader.svg?branch=master)](https://travis-ci.org/shizuku613/NosubDownloader)
+[![Build Status](https://ci.appveyor.com/api/projects/status/bydsrjf4k4abi19w/branch/master?svg=true)](https://ci.appveyor.com/project/shizuku613/nosubdownloader/branch/master)
 [![devDependency Status](https://david-dm.org/shizuku613/NosubDownloader/dev-status.svg)](https://david-dm.org/shizuku613/NosubDownloader#info=devDependencies)
 
 [English](README.md) | [日本語](README.ja.md)<br />

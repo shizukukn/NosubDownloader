@@ -24,7 +24,8 @@
     "grunt-typescript": "^0.4.0",
     "load-grunt-tasks": "^1.0.0",
     "typescript": "^1.1.0-1",
-    "grunt-webstore-upload": "^0.7.2"
+    "grunt-webstore-upload": "^0.7.2",
+    "grunt-crx": "^0.3.3"
   },
   "repository": {
     "type": "git",

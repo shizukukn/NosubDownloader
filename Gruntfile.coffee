@@ -1,4 +1,4 @@
-_ = require('./bower_components/underscore')
+_ = require('./node_modules/grunt/node_modules/lodash')
 
 module.exports = (grunt) ->
     pkg = grunt.file.readJSON 'package.json'
@@ -91,7 +91,13 @@ module.exports = (grunt) ->
                     cwd: 'bin'
                     src: [pkg.name + '/**/*']
                 ]
-                
+        
+        crx:
+            main:
+                src: 'bin/' + pkg.name + '/'
+                dest: 'bin/' + pkg.name + '.crx'
+                privateKey: '.build/secret/development.pem'
+        
         uglify:
             bower_main:
                 src: 'obj/' + pkg.name + '/bower_concat.js'
@@ -183,6 +189,7 @@ module.exports = (grunt) ->
     
     grunt.registerTask 'test', [
         'build'
+        'crx'
         ]
     
     grunt.registerTask 'create_empty_debug', ->
