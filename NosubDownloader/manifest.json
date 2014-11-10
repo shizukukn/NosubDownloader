@@ -1,59 +1,59 @@
 {
-  "name": "__MSG_extName__",
-  "description": "__MSG_extDescription__",
-  "icons": {
-    "128": "assets/icons/icon128.png",
-    "48": "assets/icons/icon48.png"
-  },
-  "default_locale": "en",
-  "version": "1.5.3.0",
-  "manifest_version": 2,
-  "background": {
-    "scripts": [
-      "vendor/js/bower_concat.js",
-      "vendor/js/cookie.js",
-      "background/js/headers.js",
-      "background/js/settings.js",
-      "background/js/cookie.js"
+    "name": "__MSG_extName__",
+    "description": "__MSG_extDescription__",
+    "icons": {
+        "128": "assets/icons/icon128.png",
+        "48": "assets/icons/icon48.png"
+    },
+    "default_locale": "en",
+    "version": "1.5.3.0",
+    "manifest_version": 2,
+    "background": {
+        "scripts": [
+            "vendor/js/bower_concat.js",
+            "vendor/js/cookie.js",
+            "background/js/headers.js",
+            "background/js/settings.js",
+            "background/js/cookie.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [ "*://www.nosub.tv/watch/*" ],
+            "css": [
+                "vendor/css/bower_concat.css",
+                "content_scripts/css/modal.css"
+            ],
+            "js": [
+                "vendor/js/bower_concat.js",
+                "vendor/js/md5.js",
+                "debug.js",
+                "content_scripts/js/cookie.js",
+                "content_scripts/js/settings.js",
+                "content_scripts/js/mukiopress.js",
+                "content_scripts/js/sina.js",
+                "content_scripts/js/xiami.js",
+                "content_scripts/js/bugreport.js",
+                "content_scripts/js/download.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": false
+        }
+    ],
+    "options_page": "options_page/html/options_page.html",
+    "permissions": [
+        "*://www.nosub.tv/*",
+        "http://video.fc2.com/*", // FC2
+        "http://videotfs.tc.qq.com/*", // QQ
+        "http://v.iask.com/*", // sina
+        "http://vip.cvideocache2.fc2.com/*", // FC2
+        "http://www.xiami.com/*", // xiami
+        "cookies",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "web_accessible_resources": [
+        "**/*.map",
+        "**/*.html"
     ]
-  },
-  "content_scripts": [
-    {
-    "matches": ["*://www.nosub.tv/watch/*"],
-    "css"    : [
-        "vendor/css/bower_concat.css",
-        "content_scripts/css/modal.css"
-    ],
-    "js"     : [
-      "vendor/js/bower_concat.js",
-      "vendor/js/md5.js",
-      "debug.js",
-      "content_scripts/js/cookie.js",
-      "content_scripts/js/settings.js",
-      "content_scripts/js/mukiopress.js",
-      "content_scripts/js/sina.js",
-      "content_scripts/js/xiami.js",
-      "content_scripts/js/bugreport.js",
-      "content_scripts/js/download.js"
-    ],
-    "run_at" : "document_start",
-    "all_frames": false
-    }
-  ],
-  "options_page": "options_page/html/options_page.html",
-  "permissions": [
-    "*://www.nosub.tv/*",
-    "http://video.fc2.com/*",            // FC2
-    "http://videotfs.tc.qq.com/*",       // QQ
-    "http://v.iask.com/*",               // sina
-    "http://vip.cvideocache2.fc2.com/*", // FC2
-    "http://www.xiami.com/*",            // xiami
-    "cookies",
-    "webRequest",
-    "webRequestBlocking"
-  ],
-  "web_accessible_resources": [
-    "**/*.map",
-    "**/*.html"
-  ]
 }
