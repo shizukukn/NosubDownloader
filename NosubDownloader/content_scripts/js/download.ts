@@ -254,7 +254,21 @@ module nosub.contentScripts.download {
         addEvents();
         setDownloadLink();
     }
-       
+
+    /**
+     * 拡張子不明なビデオリンクが追加された際のメッセージを送信する
+     */
+    function sendAddVideoUrlsMessage(urls: string[]): void {
+        var title = $('h1.title').text() || document.title;
+        var message: AddVideoUrlsMessage = {
+            type: ADD_VIDEO_URLS_MESSAGE_TYPE,
+            urls: urls,
+            fileName: title
+        };
+
+        chrome.runtime.sendMessage(message);
+    }
+
     function addVideoDownloader(
         w: number,
         h: number,
@@ -267,42 +281,55 @@ module nosub.contentScripts.download {
         var index = videos.length;
         videos.push({});
 
-        var updateVideoUrl = (url: string) => {
-            videos[index] = { url: url };
-            setDownloadLink();
+        var updateVideoUrl = (url: string, type: string) => {
+            if (url) {
+                updateVideoUrls([url], type);
+            }
         };
 
-        var updateVideoUrls = (urls: string[]) => {
-            videos[index] = { urls: urls };
-            setDownloadLink();
+        var updateVideoUrls = (urls: string[], type: string) => {
+            if (urls) {
+                videos[index] = { urls: urls };
+                setDownloadLink();
+            }
         };
 
         switch (params['type']) {
             case 'video':
             case 'sound':
-                updateVideoUrl(params['file']);
+                updateVideoUrl(params['file'], params['type']);
+
+                if (params['type'] == 'video' && params['file']) {
+                    sendAddVideoUrlsMessage([params['file']]);
+                }
+
                 break;
 
             case 'fc2':
-                getFc2VideoDownloadUrl(params['vid'], updateVideoUrl);
+                getFc2VideoDownloadUrl(params['vid'], url => {
+                    updateVideoUrl(url, params['type'])
+                });
                 break;
 
             case 'qq':
             case 'veoh':
                 mukiopress.getVideoDownloadUrl(
-                    params['type'], params['vid'], updateVideoUrl);
+                    params['type'], params['vid'],
+                    url => {
+                        updateVideoUrl(url, params['type']);
+                    });
                 break;
 
             case 'sina':
                 sina.getVideoDownloadUrls(params['vid'], (urls) => {
-                    updateVideoUrls(urls);
+                    updateVideoUrls(urls, params['type']);
                 });
 
                 break;
 
             case 'xiami':
                 xiami.getVideoDownloadUrl(params['vid'], urls => {
-                    updateVideoUrls(urls);
+                    updateVideoUrls(urls, params['type']);
                 });
 
                 break;
