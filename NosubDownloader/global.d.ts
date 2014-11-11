@@ -24,6 +24,26 @@
          */
         cookies: string;
     }
+    
+    /**
+     * 動画ページを開いた際の通知メッセージ
+     */
+    interface OpenedVideoPageMessage extends Message {
+    }
+
+    /**
+     * 動画ページを開いた際の通知メッセージ
+    */
+    interface ClosedVideoPageMessage extends Message {
+    }
+
+    /**
+     * 動画リンクが動画ページに追加された際のメッセージ
+     */
+    interface AddVideoUrlsMessage extends Message {
+        urls: string[];
+        fileName?: string;
+    }
 
     /**
      * Cookie 書き込み後のコールバック関数

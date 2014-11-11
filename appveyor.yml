@@ -49,6 +49,8 @@ init:
   - git config --global core.autocrlf false
 
 branches:
+  only:
+    - master
   except:
     - gh-pages
 
