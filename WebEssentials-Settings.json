@@ -83,7 +83,7 @@
     "AutoMinify": true,
     "BlockCommentCompletion": true,
     "EvalTreatment": "MakeImmediateSafe",
-    "GenerateSourceMaps": true,
+    "GenerateSourceMaps": false,
     "GzipMinifiedFiles": false,
     "LintOnBuild": false,
     "LintOnSave": true,

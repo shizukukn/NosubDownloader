@@ -63,11 +63,14 @@
       <DependentUpon>options_page.less</DependentUpon>
     </Content>
     <Content Include="options_page\html\options_page.html" />
+    <Content Include="vendor\js\content-type.js" />
     <Content Include="vendor\js\cookie.js" />
+    <Content Include="vendor\js\http-string-parser.js" />
     <Content Include="vendor\js\md5.js" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="background\js\cookie.ts" />
+    <TypeScriptCompile Include="background\js\filename.ts" />
     <TypeScriptCompile Include="background\js\headers.ts" />
     <Content Include="vendor\js\zepto-special-events.js" />
     <None Include="_locales\en\messages.json" />
@@ -76,6 +79,8 @@
     <Content Include="content_scripts\css\modal.less" />
     <Content Include="options_page\css\options_page.less" />
     <TypeScriptCompile Include="content_scripts\js\cookie.ts" />
+    <TypeScriptCompile Include="content_scripts\js\filename.ts" />
+    <TypeScriptCompile Include="global.ts" />
     <TypeScriptCompile Include="typings\cookie.d.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +95,7 @@
     <TypeScriptCompile Include="global.d.ts" />
     <TypeScriptCompile Include="options_page\js\jquery-sim.ts" />
     <TypeScriptCompile Include="options_page\js\options_page.ts" />
+    <TypeScriptCompile Include="typings\http-string-parser.d.ts" />
     <TypeScriptCompile Include="typings\knockout-secure-binding.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
