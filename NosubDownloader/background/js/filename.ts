@@ -1,4 +1,11 @@
-﻿/// <reference path="../../typings/http-string-parser.d.ts" />
+﻿// Path: background/js/filename.js
+// License: GPLv3<http://www.gnu.org/licenses/>
+// Author: shizuku613<https://github.com/shizuku613>
+// Copyright (C) KONO Shizuku 2014
+
+/// <reference path="../../../typings/chrome/chrome.d.ts" />
+/// <reference path="../../../typings/underscore/underscore.d.ts" />
+/// <reference path="../../typings/http-string-parser.d.ts" />
 
 declare class MediaType {
     constructor(s: string);

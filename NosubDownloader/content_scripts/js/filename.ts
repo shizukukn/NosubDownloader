@@ -1,4 +1,12 @@
-﻿module nosub.background {
+﻿// Path: content_scripts/js/filename.js
+// License: GPLv3<http://www.gnu.org/licenses/>
+// Author: shizuku613<https://github.com/shizuku613>
+// Copyright (C) KONO Shizuku 2014
+
+/// <reference path="../../../typings/chrome/chrome.d.ts" />
+/// <reference path="../../../typings/zepto/zepto.d.ts" />
+
+module nosub.background {
     'use strict';
     var undefined = void 0;
 
