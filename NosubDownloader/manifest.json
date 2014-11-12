@@ -11,15 +11,9 @@
     "background": {
         "scripts": [
             "vendor/js/bower_concat.js",
-            "vendor/js/cookie.js",
-            "vendor/js/http-string-parser.js",
-            "vendor/js/content-type.js",
             "debug.js",
             "global.js",
-            "background/js/headers.js",
-            "background/js/settings.js",
-            "background/js/cookie.js",
-            "background/js/filename.js"
+            "background/js/background.js",
         ]
     },
     "content_scripts": [
@@ -34,14 +28,7 @@
                 "vendor/js/md5.js",
                 "debug.js",
                 "global.js",
-                "content_scripts/js/cookie.js",
-                "content_scripts/js/settings.js",
-                "content_scripts/js/mukiopress.js",
-                "content_scripts/js/sina.js",
-                "content_scripts/js/xiami.js",
-                "content_scripts/js/bugreport.js",
-                "content_scripts/js/filename.js",
-                "content_scripts/js/download.js"
+                "content_scripts/js/content_scripts.js"
             ],
             "run_at": "document_start",
             "all_frames": false

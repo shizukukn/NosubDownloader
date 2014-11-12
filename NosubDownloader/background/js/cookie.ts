@@ -6,16 +6,19 @@
 
 /// <reference path="../../../typings/async/async.d.ts" />
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
-/// <reference path="../../typings/cookie.d.ts" />
+/// <reference path="../../../typings/cookie/cookie.d.ts" />
 
-module nosub.background {
-    'use strict';
+import _ = require('underscore');
+import async = require('async');
+import cookie = require('cookie');
 
-    var COOKIE_META_NAMES = ['domain', 'host-only', 'path', 'secure', 'http-only', 'session', 'max-age'];
 
-    // Cookie メッセージを受け取って、Cookie を書き込む処理
-    // 書き込み終了後、レスポンスを返す
-    chrome.runtime.onMessage.addListener((message: SetCookieMessage, sender, sendResponse: SetCookieMessageCallback) => {
+var COOKIE_META_NAMES = ['domain', 'host-only', 'path', 'secure', 'http-only', 'session', 'max-age'];
+
+// Cookie メッセージを受け取って、Cookie を書き込む処理
+// 書き込み終了後、レスポンスを返す
+chrome.runtime.onMessage.addListener(
+    (message: nosub.SetCookieMessage, sender: any, sendResponse: nosub.SetCookieMessageCallback) => {
         // Cookie メッセージ以外は処理しない
         if (message.type !== 'cookie') {
             return;
@@ -78,4 +81,3 @@ module nosub.background {
         return true;
 
     });
-}
