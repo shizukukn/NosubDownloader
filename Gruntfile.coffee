@@ -106,6 +106,15 @@ module.exports = (grunt) ->
                 cwd: pkg.name + '/vendor/js/'
                 src: '*.js'
                 dest: 'bin/' + pkg.name + '/vendor/js/'
+            main_background:
+                src: 'bin/' + pkg.name + '/background/js/background.js'
+                dest: 'bin/' + pkg.name + '/background/js/background.js'
+            main_content_scripts:
+                    src: 'bin/' + pkg.name + '/content_scripts/js/content_scripts.js'
+                    dest: 'bin/' + pkg.name + '/content_scripts/js/content_scripts.js'
+            main_options_page:
+                    src: 'bin/' + pkg.name + '/options_page/js/options_page.js'
+                    dest: 'bin/' + pkg.name + '/options_page/js/options_page.js'
         
         json5_to_json:
             manifest:
