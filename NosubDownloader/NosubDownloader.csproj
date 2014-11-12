@@ -81,7 +81,6 @@
     <TypeScriptCompile Include="content_scripts\js\cookie.ts" />
     <TypeScriptCompile Include="content_scripts\js\filename.ts" />
     <TypeScriptCompile Include="global.ts" />
-    <TypeScriptCompile Include="typings\cookie.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="background\js\settings.ts" />
@@ -95,8 +94,12 @@
     <TypeScriptCompile Include="global.d.ts" />
     <TypeScriptCompile Include="options_page\js\jquery-sim.ts" />
     <TypeScriptCompile Include="options_page\js\options_page.ts" />
-    <TypeScriptCompile Include="typings\http-string-parser.d.ts" />
+    <TypeScriptCompile Include="typings\content-type.d.ts" />
     <TypeScriptCompile Include="typings\knockout-secure-binding.d.ts" />
   </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
+    <TypeScriptNoImplicitAny>True</TypeScriptNoImplicitAny>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

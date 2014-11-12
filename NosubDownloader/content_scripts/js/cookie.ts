@@ -5,22 +5,20 @@
 
 /// <reference path="../../../typings/chrome/chrome.d.ts" />
 
-module nosub.contentScripts {
 
-    export function setCookie(
-        url: string,
-        cookies: string,
-        callback: () => void
-        ): void {
+export function setCookie(
+    url: string,
+    cookies: string,
+    callback: () => void
+    ): void {
 
-        var message: SetCookieMessage = {
-            type: 'cookie',
-            url: url,
-            cookies: cookies
-        };
+    var message: nosub.SetCookieMessage = {
+        type: 'cookie',
+        url: url,
+        cookies: cookies
+    };
 
-        chrome.runtime.sendMessage(message, () => {
-            callback();
-        });
-    }
+    chrome.runtime.sendMessage(message, () => {
+        callback();
+    });
 }

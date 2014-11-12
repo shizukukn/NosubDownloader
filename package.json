@@ -8,7 +8,13 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "cookie": "^0.1.2",
+    "http-string-parser": "0.0.4",
+    "async": "^0.9.0",
+    "underscore": "^1.7.0",
+    "content-type": "0.0.1"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-bower-concat": "^0.4.0",
@@ -25,7 +31,10 @@
     "load-grunt-tasks": "^1.0.0",
     "typescript": "^1.1.0-1",
     "grunt-webstore-upload": "^0.7.2",
-    "grunt-crx": "^0.3.3"
+    "grunt-crx": "^0.3.3",
+    "grunt-browserify": "^3.2.0",
+    "typescriptifier": "^1.0.0",
+    "debowerify": "^0.9.1"
   },
   "repository": {
     "type": "git",
