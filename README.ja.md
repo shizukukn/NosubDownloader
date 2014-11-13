@@ -13,6 +13,7 @@ Nosub に動画ダウンロードボタンを追加する Google Chrome 拡張�
 * [TypeScript](http://www.typescriptlang.org)
 * [LESS](http://lesscss.org)
 * [Grunt](http://gruntjs.com)
+* [Browserify](http://browserify.org)
 * [Bower](http://bower.io)
 * [tsd](http://definitelytyped.org/tsd/)
 * [Travis CI](https://travis-ci.org)

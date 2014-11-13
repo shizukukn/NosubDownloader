@@ -6,31 +6,37 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "zepto/zepto.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "chrome/chrome.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "webrtc/MediaStream.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "underscore/underscore.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "md5/md5.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "pgwmodal/pgwmodal.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "knockout.es5/knockout.es5.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "knockout/knockout.d.ts": {
-      "commit": "db12137e9a7b9638ca08bf860df66232e74e2ca1"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     },
     "async/async.d.ts": {
-      "commit": "1a9210fff5becc7aa4aa5e03869e14455285c56b"
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
+    },
+    "http-string-parser/http-string-parser.d.ts": {
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
+    },
+    "cookie/cookie.d.ts": {
+      "commit": "41840d00495e53bd8a4a058b6c06a7db611a6e44"
     }
   }
 }

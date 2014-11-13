@@ -6,31 +6,30 @@
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../../typings/zepto/zepto.d.ts" />
 
-module nosub.contentScripts.sina {
-    'use strict';
+import _ = require('underscore');
 
-    var SINA_URL = 'http://v.iask.com/v_play.php?';
 
-    function getSinaVideoInfoUrl(vid: string): string {
-        return SINA_URL + 'vid=' + vid;
-    }
+var SINA_URL = 'http://v.iask.com/v_play.php?';
 
-    function parseVideoInfo(xml: XMLDocument): string[]{
-        var durls = xml.querySelectorAll('durl url');
+function getSinaVideoInfoUrl(vid: string): string {
+    return SINA_URL + 'vid=' + vid;
+}
 
-        return _.map(durls, node => {
-            return node.textContent;
-        });
-    }
+function parseVideoInfo(xml: XMLDocument): string[]{
+    var durls = xml.querySelectorAll('durl url');
 
-    export function getVideoDownloadUrls(vid: string, cb: (urls: string[]) => void): void {
-        var url = getSinaVideoInfoUrl(vid);
+    return _.map(durls, node => {
+        return node.textContent;
+    });
+}
 
-        $.get(url, (data: XMLDocument) => {
-            var urls = parseVideoInfo(data);
-            //console.log(urls);
+export function getVideoDownloadUrls(vid: string, cb: (urls: string[]) => void): void {
+    var url = getSinaVideoInfoUrl(vid);
 
-            cb(urls);
-        });
-    }
+    $.get(url, (data: XMLDocument) => {
+        var urls = parseVideoInfo(data);
+        //console.log(urls);
+
+        cb(urls);
+    });
 }
