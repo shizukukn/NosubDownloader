@@ -18,7 +18,6 @@ module.exports = (grunt) ->
                 mainFiles:
                     'pgwmodal': ['pgwmodal.js', 'pgwmodal.css']
                     'knockout-secure-binding': 'dist/knockout-secure-binding.js'
-                    'async': 'lib/async.js'
                 exclude: ['jquery', 'bootstrap']
                 dest: 'obj/' + pkg.name + '/bower_concat.js'
                 cssDest: 'obj/' + pkg.name + '/bower_concat.css'
@@ -33,10 +32,10 @@ module.exports = (grunt) ->
                 expand: true
                 cwd: pkg.name + '/'
                 src: [
-                    'debug.js'
+                    '*.js'
+                    'vendor/**/*.js'
                     '**/*.png'
                     '**/*.json'
-                    '**/*.js'
                     '**/*.css'
                     '**/*.html'
                     ]
@@ -57,16 +56,19 @@ module.exports = (grunt) ->
             license:
                 src: 'LICENSE.txt'
                 dest: 'bin/' + pkg.name + '/'
-        
+       
         typescript:
+            options:
+                module: 'commonjs'
+                target: 'es5'
+                sourceMap: false
+                declaration: false
+                noImplicitAny: true
+                comments: true
             main:
+                src: [pkg.name + '/*.ts']
+            all:
                 src: [pkg.name + '/**/*.ts']
-                options:
-                    target: 'es5'
-                    sourceMap: false
-                    declaration: false
-                    noImplicitAny: false
-                    comments: true
         
         less:
             main:
@@ -99,20 +101,26 @@ module.exports = (grunt) ->
                 privateKey: '.build/secret/development.pem'
         
         uglify:
-            bower_main:
-                src: 'obj/' + pkg.name + '/bower_concat.js'
+            vendor:
+                expand: true
+                cwd: pkg.name + '/vendor/js/'
+                src: '*.js'
+                dest: 'bin/' + pkg.name + '/vendor/js/'
+            bower_concat:
+                src: 'bin/' + pkg.name + '/vendor/js/bower_concat.js'
                 dest: 'bin/' + pkg.name + '/vendor/js/bower_concat.js'
-                options:
-                    sourceMap: false
-            bower_bootstrap:
-                src: 'obj/' + pkg.name + '/bootstrap.js'
+            bootstrap:
+                src: 'bin/' + pkg.name + '/vendor/js/bootstrap.js'
                 dest: 'bin/' + pkg.name + '/vendor/js/bootstrap.js'
-                options:
-                    sourceMap: false
-            
-            md5:
-                src: pkg.name + '/vendor/js/md5.js'
-                dest: 'bin/' + pkg.name + '/vendor/js/md5.js'
+            main_background:
+                src: 'bin/' + pkg.name + '/background/js/background.js'
+                dest: 'bin/' + pkg.name + '/background/js/background.js'
+            main_content_scripts:
+                src: 'bin/' + pkg.name + '/content_scripts/js/content_scripts.js'
+                dest: 'bin/' + pkg.name + '/content_scripts/js/content_scripts.js'
+            main_options_page:
+                src: 'bin/' + pkg.name + '/options_page/js/options_page.js'
+                dest: 'bin/' + pkg.name + '/options_page/js/options_page.js'
         
         json5_to_json:
             manifest:
@@ -135,17 +143,46 @@ module.exports = (grunt) ->
                   zip: 'bin/' + pkg.name + '.zip'
             )
         
+        browserify:
+            options:
+                transform: ['typescriptifier', 'strictify', 'debowerify']
+                browserifyOptions:
+                    extensions: ['.ts']
+            main_background:
+                src: pkg.name + '/background/js/*.ts'
+                dest: 'bin/' + pkg.name + '/background/js/background.js'
+            main_content_scripts:
+                src: pkg.name + '/content_scripts/js/*.ts'
+                dest: 'bin/' + pkg.name + '/content_scripts/js/content_scripts.js'
+            main_options_page:
+                src: pkg.name + '/options_page/js/*.ts'
+                dest: 'bin/' + pkg.name + '/options_page/js/options_page.js'
+        
         clean:
             bin: ['bin/**/*']
             obj: ['obj/**/*']
         
         watch:
+            main_browserify_background:
+                files: [pkg.name + '/background/**/*.ts']
+                tasks: ['browserify:main_background']
+            main_browserify_content_scripts:
+                files: [pkg.name + '/content_scripts/**/*.ts']
+                tasks: ['browserify:main_content_scripts']
+            main_browserify_options_page:
+                files: [pkg.name + '/options_page/**/*.ts']
+                tasks: ['browserify:main_options_page']
+            
+            main_typescript:
+                files: [pkg.name + '/*.ts']
+                tasks: ['typescript', 'copy:main']
+            
             main_static:
                 files: [
                     pkg.name + '/**/*.png'
                     pkg.name + '/_locales/*.json'
-                    pkg.name + '/debug.js'
-                    pkg.name + '/**/*.js'
+                    pkg.name + '/*.js'
+                    pkg.name + '/vendor/**/*'
                     pkg.name + '/**/*.css'
                     pkg.name + '/**/*.html'
                     ]
@@ -164,7 +201,8 @@ module.exports = (grunt) ->
     grunt.registerTask 'default', [
         'clean'
         'htmlhint'
-        'typescript'
+        'typescript:main'
+        'browserify'
         'less'
         'bower_concat'
         'copy'
@@ -176,11 +214,10 @@ module.exports = (grunt) ->
         'clean'
         'htmlhint'
         'typescript'
+        'browserify'
         'less'
         'bower_concat'
-        'copy:main'
-        'copy:license'
-        'copy:bower_css'
+        'copy'
         'json5_to_json'
         'create_empty_debug'
         'uglify'

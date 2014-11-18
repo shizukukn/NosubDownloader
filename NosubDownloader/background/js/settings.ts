@@ -7,16 +7,13 @@
 /// <reference path="../../../typings/underscore/underscore.d.ts" />
 /// <reference path="../../global.d.ts" />
 
-module nosub.background.settings {
-    'use strict';
+import _ = require('underscore');
 
-    chrome.runtime.onMessage.addListener((message: Message, sender, sendResponse: (val: any) => void) => {
-        switch (message.type) {
-            case 'setting':
-                var settingMessage = <SettingMessage>message;
-                settingMessage.value = localStorage.getItem(settingMessage.name);
-                sendResponse(settingMessage);
-                break;
+chrome.runtime.onMessage.addListener(
+    (message: nosub.Message, sender: any, sendResponse: (val: any) => void) => {
+        if (message.type == 'setting') {
+            var settingMessage = <nosub.SettingMessage>message;
+            settingMessage.value = localStorage.getItem(settingMessage.name);
+            sendResponse(settingMessage);
         }
     });
-}
