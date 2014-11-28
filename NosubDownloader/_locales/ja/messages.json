@@ -16,10 +16,10 @@
         "message": "ダウンロードをクリックで保存"
     },
     "inquiryFormLinkText": {
-        "message": "ダウンロード出来ない場合"
+        "message": "質問・要望・不具合報告"
     },
     "inquiryWindowTitle": {
-        "message": "ダウンロード出来ない場合"
+        "message": "質問・要望・不具合報告"
     },
     "settingsLinkText": {
         "message": "設定"
