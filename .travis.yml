@@ -2,11 +2,9 @@ language: node_js
 node_js:
   - 0.10
 before_script:
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - npm install -g tsd@0.6.0-beta.3
-  - bower --version
-  - tsd --version
-  - bower install
-  - tsd reinstall
+  - node_modules/.bin/grunt --version
+  - node_modules/.bin/bower --version
+  - node_modules/.bin/tsd --version
+  - node_modules/.bin/bower install
+  - node_modules/.bin/tsd reinstall
 script: npm test
