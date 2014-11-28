@@ -35,7 +35,7 @@ module.exports = (grunt) ->
                     '*.js'
                     'vendor/**/*.js'
                     '**/*.png'
-                    '**/*.json'
+                    '_locales/*/*.json'
                     '**/*.css'
                     '**/*.html'
                     ]
