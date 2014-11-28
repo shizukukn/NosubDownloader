@@ -16,10 +16,10 @@
         "message": "Click download link to save"
     },
     "inquiryFormLinkText": {
-        "message": "If can't download the video"
+        "message": "Question, Request or Bug report" 
     },
     "inquiryWindowTitle": {
-        "message": "If can't download the video"
+        "message": "Question, Request or Bug report"
     },
     "settingsLinkText": { 
         "message": "Settings"
