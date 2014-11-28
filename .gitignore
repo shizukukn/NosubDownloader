@@ -9,6 +9,7 @@ npm-debug.log
 
 /bin
 /obj
+tmp
 
 Gruntfile.js
 Gruntfile.js.map
