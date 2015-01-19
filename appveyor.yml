@@ -18,7 +18,7 @@ install:
   - SET OPENSSL_CONF=C:\Utils\OpenSSL-Win32\bin\openssl.cfg
   
   # Update NPM
-  - npm install -g npm
+  - npm install -g npm@2.1.8
   - npm --version
   
   # Update node-gyp
